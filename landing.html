@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>THE TABLE — 기회는 살 수 있습니다</title>
-  <meta name="description" content="한 번의 식사가 방향을 바꿉니다. 만나기 어려운 멘토와 단 둘이, 혹은 소수 정예로 테이블에 앉으세요. 큐레이션된 만남, 에스크로 보호, 멘토 명의 기부까지 — THE TABLE." />
+  <title>MAJU — 당신 앞의 미래와, 마주하세요</title>
+  <meta name="description" content="당신보다 먼저 그 길을 걸어간 사람과 마주하세요. 큐레이션된 만남, 에스크로 보호, 멘토 명의 기부까지 — MAJU." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -14,12 +14,7 @@
         extend: {
           fontFamily: { sans: ['Pretendard Variable', 'Pretendard', 'sans-serif'] },
           colors: {
-            cream: {
-              50:  '#FEFCF8',
-              100: '#FAF6EE',
-              200: '#F4EDE0',
-              300: '#EDE0CC',
-            },
+            cream: { 50: '#FEFCF8', 100: '#FAF6EE', 200: '#F4EDE0', 300: '#EDE0CC' },
             stone: {
               950: '#0C0A09', 900: '#1C1917', 800: '#292524',
               700: '#44403C', 600: '#57534E', 500: '#78716C',
@@ -35,35 +30,23 @@
   <style>
     * { font-family: 'Pretendard Variable', 'Pretendard', sans-serif; }
     html { scroll-behavior: smooth; }
-
     body { background-color: #FAF6EE; color: #292524; }
 
-    /* ── 히어로 배경: 따뜻한 크림 + 골드 빛 */
     .hero-bg {
       background:
         radial-gradient(ellipse 70% 55% at 50% 0%, rgba(201,168,76,0.13) 0%, transparent 65%),
         #FAF6EE;
     }
-
-    /* ── 스토리 섹션 */
     .story-bg { background-color: #F4EDE0; }
-
-    /* ── 골드 그라디언트 텍스트 */
     .gold-text {
       background: linear-gradient(135deg, #A07828 0%, #C9A84C 45%, #A07828 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
-    /* ── 카드 호버 */
     .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .card-hover:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(160,120,40,0.12);
-    }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(160,120,40,0.12); }
 
-    /* ── 타임라인 선 */
     .timeline-line::before {
       content: '';
       position: absolute;
@@ -71,29 +54,19 @@
       width: 1px;
       background: linear-gradient(to bottom, #C9A84C, transparent);
     }
+    .divider { background: linear-gradient(to right, transparent, #D6D3D1, transparent); height: 1px; }
 
-    /* ── 구분선 */
-    .divider {
-      background: linear-gradient(to right, transparent, #D6D3D1, transparent);
-      height: 1px;
-    }
-
-    /* ── 티어 카드 */
     .tier-card {
       border: 1px solid #E7E5E4;
       background: #FFFFFF;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .tier-card:hover {
-      border-color: #C9A84C;
-      box-shadow: 0 8px 24px rgba(160,120,40,0.10);
-    }
+    .tier-card:hover { border-color: #C9A84C; box-shadow: 0 8px 24px rgba(160,120,40,0.10); }
     .tier-card.featured {
       border-color: #C9A84C;
       background: linear-gradient(145deg, #FFFCF4 0%, #FFF7E6 100%);
     }
 
-    /* ── 페이드업 애니메이션 */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -103,35 +76,18 @@
     .delay-2 { animation-delay: 0.28s; }
     .delay-3 { animation-delay: 0.44s; }
 
-    /* ── 스크롤 리빌 */
     .scroll-reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── 네비 */
     .nav-blur {
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       background: rgba(250,246,238,0.92);
       border-bottom: 1px solid rgba(201,168,76,0.18);
     }
-
-    /* ── 구분 섹션 배경 */
     .section-alt { background-color: #EFE5D5; }
-
-    /* ── 카드 기본 */
-    .card-base {
-      background: #FFFFFF;
-      border: 1px solid #E7E5E4;
-    }
-
-    /* ── 배지 */
-    .badge {
-      background: rgba(184,149,46,0.10);
-      border: 1px solid rgba(184,149,46,0.35);
-      color: #92700E;
-    }
-
-    /* ── shadow 카드 */
+    .card-base { background: #FFFFFF; border: 1px solid #E7E5E4; }
+    .badge { background: rgba(184,149,46,0.10); border: 1px solid rgba(184,149,46,0.35); color: #92700E; }
     .shadow-card { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 
     /* ── 모달 */
@@ -176,7 +132,8 @@
     .form-input:focus { border-color: #C9A84C; background: #FFFFFF; }
     .form-input::placeholder { color: #A8A29E; }
     textarea.form-input { resize: vertical; min-height: 88px; }
-    select.form-input { appearance: none; cursor: pointer;
+    select.form-input {
+      appearance: none; cursor: pointer;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A8A29E' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem;
     }
@@ -187,11 +144,11 @@
   <!-- ─── 네비게이션 ─────────────────────────────────────── -->
   <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <span class="text-xl font-bold tracking-widest gold-text">THE TABLE</span>
+      <span class="text-xl font-bold tracking-widest gold-text">MAJU</span>
       <div class="hidden md:flex items-center gap-8 text-sm text-stone-500">
-        <a href="#story" class="hover:text-stone-900 transition-colors">기회를 산다는 것</a>
+        <a href="#story" class="hover:text-stone-900 transition-colors">마주한다는 것</a>
         <a href="#how" class="hover:text-stone-900 transition-colors">어떻게 작동하나요</a>
-        <a href="#table" class="hover:text-stone-900 transition-colors">테이블 형태</a>
+        <a href="#format" class="hover:text-stone-900 transition-colors">만남 형태</a>
         <a href="#faq" class="hover:text-stone-900 transition-colors">FAQ</a>
       </div>
       <div class="flex items-center gap-3">
@@ -207,19 +164,16 @@
   <section class="hero-bg min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-20">
     <div class="max-w-4xl mx-auto text-center">
 
-      <!-- 배지 -->
       <div class="fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full badge text-sm mb-8">
         <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
         사전 신청 열림 · 첫 번째 멘토 모집 중
       </div>
 
-      <!-- 헤드라인 -->
       <h1 class="fade-up delay-1 text-5xl md:text-7xl font-bold text-stone-900 leading-tight mb-6">
-        한 번의 식사가<br/>
-        <span class="gold-text">방향을 바꿉니다</span>
+        당신 앞의 미래와,<br/>
+        <span class="gold-text">마주하세요</span>
       </h1>
 
-      <!-- 서브타이틀 -->
       <p class="fade-up delay-2 text-lg md:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto mb-12">
         워런 버핏과의 점심 한 끼는 수십억 원에 팔립니다.<br class="hidden md:block"/>
         그 돈을 낸 사람들은 미쳤던 게 아닙니다.<br class="hidden md:block"/>
@@ -227,10 +181,9 @@
         <br class="hidden md:block"/>
         당신이 막혀 있는 그 지점,<br class="hidden md:block"/>
         이미 그 길을 걸어간 사람이 이 나라에 있습니다.<br class="hidden md:block"/>
-        THE TABLE은 그 사람과의 자리를 만듭니다.
+        MAJU는 당신과 그 사람의 마주함을 만듭니다.
       </p>
 
-      <!-- CTA 버튼 -->
       <div class="fade-up delay-3 flex flex-col sm:flex-row gap-4 justify-center">
         <button onclick="openModal('mentee')" class="px-8 py-4 rounded-full font-semibold text-white bg-amber-600 hover:bg-amber-700 transition-all text-base shadow-md shadow-amber-200 cursor-pointer">
           자리 신청하기
@@ -242,12 +195,12 @@
     </div>
   </section>
 
-  <!-- ─── 기회를 산다는 것 ──────────────────────────────────── -->
+  <!-- ─── 마주한다는 것 ──────────────────────────────────────── -->
   <section id="story" class="story-bg py-24 px-6">
     <div class="max-w-3xl mx-auto">
       <div class="scroll-reveal text-center mb-16">
-        <p class="text-stone-400 text-sm tracking-widest uppercase mb-4">THE TABLE이 존재하는 이유</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900">기회를 산다는 것</h2>
+        <p class="text-stone-400 text-sm tracking-widest uppercase mb-4">MAJU가 존재하는 이유</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-stone-900">마주한다는 것</h2>
       </div>
 
       <div class="scroll-reveal mb-16 text-center max-w-2xl mx-auto">
@@ -256,7 +209,7 @@
           강의에서도, 책에서도 아닌 — 마주 앉아 나누는 진짜 대화에서.
         </p>
         <p class="text-stone-500 leading-relaxed">
-          문제는, 그 대화를 나눌 자격이 있는 사람에게 접근하는 방법이<br class="hidden md:block"/>
+          문제는, 그 대화를 나눌 사람에게 접근하는 방법이<br class="hidden md:block"/>
           지금껏 인맥과 운에만 달려 있었다는 것입니다.
         </p>
       </div>
@@ -269,7 +222,7 @@
         </div>
         <div class="scroll-reveal p-6 rounded-2xl bg-white border border-stone-200 text-center shadow-card">
           <div class="w-12 h-12 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 font-bold text-lg mx-auto mb-4">02</div>
-          <h3 class="font-semibold text-stone-900 mb-2">기회는 만들 수 있습니다</h3>
+          <h3 class="font-semibold text-stone-900 mb-2">마주할 기회는 만들 수 있습니다</h3>
           <p class="text-stone-500 text-sm leading-relaxed">인맥도, 운도 필요 없습니다. 진지함과 준비가 있는 사람이라면 누구에게나 그 자리가 열립니다.</p>
         </div>
         <div class="scroll-reveal p-6 rounded-2xl bg-white border border-stone-200 text-center shadow-card">
@@ -281,7 +234,7 @@
     </div>
   </section>
 
-  <!-- ─── 왜 THE TABLE인가 ──────────────────────────────────── -->
+  <!-- ─── 왜 MAJU인가 ────────────────────────────────────────── -->
   <section class="py-24 px-6" style="background-color: #FAF6EE;">
     <div class="max-w-3xl mx-auto">
       <div class="divider mb-16"></div>
@@ -289,31 +242,32 @@
       <div class="scroll-reveal text-center mb-12">
         <p class="text-stone-400 text-sm tracking-widest uppercase mb-4">이름의 의미</p>
         <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-6">
-          왜 이름이<br/><span class="gold-text">THE TABLE</span>인가
+          왜 이름이<br/><span class="gold-text">MAJU</span>인가
         </h2>
         <p class="text-stone-600 text-lg leading-relaxed max-w-2xl mx-auto">
-          테이블은 이 세상에서 가장 평등한 공간입니다.<br/>
-          사무실도, 강당도, 무대도 아닌 — 테이블.<br/>
-          둘이 마주 앉아 식사를 나누는 그 자리에서,<br/>
-          직함은 내려앉고 진짜 대화가 시작됩니다.
+          마주 앉다. 마주 보다. 마주하다.<br/>
+          한국어에서 '마주'는 단순한 만남이 아닙니다.<br/>
+          같은 눈높이에서, 서로의 시선이 닿는 그 순간.<br/>
+          회의실도, 강단도 아닌 식사 자리에서<br/>
+          진짜 대화는 마주할 때 비로소 시작됩니다.
         </p>
       </div>
 
       <div class="scroll-reveal grid md:grid-cols-2 gap-6 mb-12">
         <div class="p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
-          <div class="text-amber-700 text-xs font-semibold tracking-widest uppercase mb-3">A Seat at the Table</div>
-          <p class="text-stone-600 text-sm leading-relaxed">"a seat at the table" — 중요한 결정이 이루어지는 자리에 참여할 권리. 그 자리는 보통 인맥과 타이틀이 있어야만 주어집니다.</p>
+          <div class="text-amber-700 text-xs font-semibold tracking-widest uppercase mb-3">마주한다는 것</div>
+          <p class="text-stone-600 text-sm leading-relaxed">'마주하다' — 서로 얼굴을 맞대고 앉다. 회의실도, 강단도 아닌 그 자리에서 직함은 내려앉고 당신의 진짜 이야기가 시작됩니다.</p>
         </div>
         <div class="p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
-          <div class="text-amber-700 text-xs font-semibold tracking-widest uppercase mb-3">THE TABLE의 약속</div>
-          <p class="text-stone-600 text-sm leading-relaxed">우리는 그 자리를 다시 정의합니다. 진지함과 준비가 있는 사람이라면, 타이틀이나 인맥과 관계없이 — 누구에게나 그 테이블에 앉을 자격을 줍니다.</p>
+          <div class="text-amber-700 text-xs font-semibold tracking-widest uppercase mb-3">MAJU의 약속</div>
+          <p class="text-stone-600 text-sm leading-relaxed">진지함과 준비가 있는 사람이라면, 타이틀이나 인맥과 관계없이 — 누구에게나 그 마주함의 자리를 열겠다는 약속입니다.</p>
         </div>
       </div>
 
       <div class="scroll-reveal text-center">
         <p class="text-xl md:text-2xl font-medium text-stone-700 leading-relaxed">
-          "만나기 어려운 그 분과,<br/>
-          <span class="gold-text font-bold">테이블에서.</span>"
+          "당신 앞의 미래에 있는 사람과,<br/>
+          <span class="gold-text font-bold">마주하세요.</span>"
         </p>
       </div>
     </div>
@@ -354,23 +308,22 @@
     </div>
   </section>
 
-  <!-- ─── THE TABLE의 해법 ──────────────────────────────────── -->
+  <!-- ─── MAJU의 해법 ───────────────────────────────────────── -->
   <section class="py-24 px-6" style="background-color: #FAF6EE;">
     <div class="max-w-3xl mx-auto text-center">
       <div class="scroll-reveal">
-        <p class="text-stone-400 text-sm tracking-widest uppercase mb-4">THE TABLE의 해법</p>
+        <p class="text-stone-400 text-sm tracking-widest uppercase mb-4">MAJU의 해법</p>
         <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-6">
-          좋은 사람들이 시간을 내는 데는<br/>
+          좋은 사람들이 마주하는 데는<br/>
           <span class="gold-text">이유가 필요합니다</span>
         </h2>
         <p class="text-stone-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-          THE TABLE은 그 이유를 만들었습니다.<br/>
-          멘토가 테이블을 열면, 수익의 일부가 <strong class="text-stone-900">멘토 본인의 이름으로 기부</strong>됩니다.<br/>
-          시간을 파는 것이 아니라, <strong class="text-stone-900">의미 있는 시간 + 사회적 명분</strong>을 함께 만드는 것입니다.
+          MAJU는 그 이유를 만들었습니다.<br/>
+          멘토가 자리를 열면, 수익의 일부가 <strong class="text-stone-900">멘토 본인의 이름으로 기부</strong>됩니다.<br/>
+          시간을 파는 것이 아니라, <strong class="text-stone-900">의미 있는 마주함 + 사회적 명분</strong>을 함께 만드는 것입니다.
         </p>
       </div>
 
-      <!-- 기부 플로우 -->
       <div class="scroll-reveal flex flex-col md:flex-row items-center justify-center gap-3 mb-10">
         <div class="px-5 py-4 rounded-2xl bg-white border border-stone-200 shadow-card text-center min-w-[130px]">
           <div class="text-2xl mb-1">🙋</div>
@@ -381,7 +334,7 @@
         <div class="text-stone-300 font-mono text-xl md:hidden">↓</div>
         <div class="px-5 py-4 rounded-2xl bg-amber-50 border border-amber-200 shadow-card text-center min-w-[130px]">
           <div class="text-2xl mb-1">🤝</div>
-          <div class="text-sm font-semibold text-stone-800">만남 성사</div>
+          <div class="text-sm font-semibold text-stone-800">마주함 성사</div>
           <div class="text-xs text-stone-400 mt-0.5">큐레이션 · 검증</div>
         </div>
         <div class="text-stone-300 font-mono text-xl hidden md:block">→</div>
@@ -400,7 +353,7 @@
         </div>
       </div>
 
-      <p class="text-stone-400 text-sm">모든 결제는 에스크로로 보호됩니다. 만남이 확인된 후에만 정산이 이루어집니다.</p>
+      <p class="text-stone-400 text-sm">모든 결제는 에스크로로 보호됩니다. 마주함이 확인된 후에만 정산이 이루어집니다.</p>
     </div>
   </section>
 
@@ -419,8 +372,8 @@
             <div class="relative pl-12 timeline-line">
               <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-700 font-bold text-sm">1</div>
               <div>
-                <h3 class="font-semibold text-stone-900 mb-1">테이블 탐색 & 신청</h3>
-                <p class="text-stone-500 text-sm leading-relaxed">공개된 테이블을 둘러보고, 왜 이 멘토와 이야기하고 싶은지 진지하게 작성합니다. 아무나 받지 않습니다.</p>
+                <h3 class="font-semibold text-stone-900 mb-1">자리 탐색 & 신청</h3>
+                <p class="text-stone-500 text-sm leading-relaxed">공개된 자리를 둘러보고, 왜 이 멘토와 마주하고 싶은지 진지하게 작성합니다. 아무나 받지 않습니다.</p>
               </div>
             </div>
             <div class="relative pl-12 timeline-line">
@@ -433,7 +386,7 @@
             <div class="relative pl-12">
               <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-amber-100 border-2 border-amber-400 flex items-center justify-center text-amber-700 font-bold text-sm">3</div>
               <div>
-                <h3 class="font-semibold text-stone-900 mb-1">테이블에서 만남</h3>
+                <h3 class="font-semibold text-stone-900 mb-1">마주하기</h3>
                 <p class="text-stone-500 text-sm leading-relaxed">식사를 함께합니다. 이후 양방향 후기가 남겨지고, 기부가 확정됩니다.</p>
               </div>
             </div>
@@ -448,8 +401,8 @@
             <div class="relative pl-12 timeline-line">
               <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-white border border-stone-300 flex items-center justify-center text-stone-600 font-bold text-sm">1</div>
               <div>
-                <h3 class="font-semibold text-stone-900 mb-1">테이블 오픈</h3>
-                <p class="text-stone-500 text-sm leading-relaxed">일정, 포맷(1:1 또는 소수 라운드), 가격을 설정합니다. 검증된 멘토만 테이블을 열 수 있습니다.</p>
+                <h3 class="font-semibold text-stone-900 mb-1">자리 오픈</h3>
+                <p class="text-stone-500 text-sm leading-relaxed">일정, 포맷(1:1 또는 소수 라운드), 가격을 설정합니다. 검증된 멘토만 자리를 열 수 있습니다.</p>
               </div>
             </div>
             <div class="relative pl-12 timeline-line">
@@ -463,7 +416,7 @@
               <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-white border border-stone-300 flex items-center justify-center text-stone-600 font-bold text-sm">3</div>
               <div>
                 <h3 class="font-semibold text-stone-900 mb-1">명의 기부 & 배지 누적</h3>
-                <p class="text-stone-500 text-sm leading-relaxed">만남 후 수익의 10%가 자동으로 멘토 명의로 기부됩니다. 프로필에 누적 기부 금액과 횟수가 배지로 남습니다.</p>
+                <p class="text-stone-500 text-sm leading-relaxed">마주함 후 수익의 10%가 자동으로 멘토 명의로 기부됩니다. 프로필에 누적 기부 금액과 횟수가 배지로 남습니다.</p>
               </div>
             </div>
           </div>
@@ -477,12 +430,11 @@
     <div class="max-w-5xl mx-auto">
       <div class="scroll-reveal text-center mb-16">
         <p class="text-stone-400 text-sm tracking-widest uppercase mb-4">이런 분들이 함께합니다</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">테이블을 여는 사람들</h2>
-        <p class="text-stone-500">모든 멘토는 THE TABLE 운영진의 검증을 거칩니다.</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">마주할 수 있는 사람들</h2>
+        <p class="text-stone-500">모든 멘토는 MAJU 운영진의 검증을 거칩니다.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <!-- 멘토 카드 1 -->
         <div class="scroll-reveal card-hover p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
           <div class="flex items-start gap-4 mb-4">
             <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">K</div>
@@ -503,9 +455,8 @@
           </div>
         </div>
 
-        <!-- 멘토 카드 2 (첫 테이블) -->
         <div class="scroll-reveal card-hover p-6 rounded-2xl border-2 border-amber-400 bg-gradient-to-br from-amber-50 to-white relative shadow-card">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-amber-500 text-white text-xs font-semibold">첫 테이블</div>
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-amber-500 text-white text-xs font-semibold">첫 마주함</div>
           <div class="flex items-start gap-4 mb-4">
             <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">L</div>
             <div>
@@ -525,7 +476,6 @@
           </div>
         </div>
 
-        <!-- 멘토 카드 3 -->
         <div class="scroll-reveal card-hover p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
           <div class="flex items-start gap-4 mb-4">
             <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">P</div>
@@ -557,44 +507,43 @@
   <section class="py-24 px-6 section-alt">
     <div class="max-w-4xl mx-auto">
       <div class="scroll-reveal text-center mb-16">
-        <p class="text-stone-400 text-sm tracking-widest uppercase mb-4">왜 THE TABLE을 믿을 수 있나요</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900">안심하고 만날 수 있는 이유</h2>
+        <p class="text-stone-400 text-sm tracking-widest uppercase mb-4">왜 MAJU를 믿을 수 있나요</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-stone-900">안심하고 마주할 수 있는 이유</h2>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
         <div class="scroll-reveal text-center">
           <div class="w-16 h-16 rounded-2xl bg-white border border-stone-200 shadow-card flex items-center justify-center text-3xl mx-auto mb-4">🔐</div>
           <h3 class="font-semibold text-stone-900 mb-2">에스크로 보호 결제</h3>
-          <p class="text-stone-500 text-sm leading-relaxed">Toss Payments 에스크로로 결제금이 보관됩니다. 만남이 실제로 이루어진 후에만 정산됩니다. 노쇼·취소 시 전액 환불.</p>
+          <p class="text-stone-500 text-sm leading-relaxed">Toss Payments 에스크로로 결제금이 보관됩니다. 마주함이 실제로 이루어진 후에만 정산됩니다. 노쇼·취소 시 전액 환불.</p>
         </div>
         <div class="scroll-reveal text-center">
           <div class="w-16 h-16 rounded-2xl bg-white border border-stone-200 shadow-card flex items-center justify-center text-3xl mx-auto mb-4">🎯</div>
           <h3 class="font-semibold text-stone-900 mb-2">양방향 큐레이션</h3>
-          <p class="text-stone-500 text-sm leading-relaxed">멘토도, 멘티도 검증됩니다. 운영진이 신청서를 검토하고, 멘토가 최종 승인합니다. 아무나 앉는 자리가 아닙니다.</p>
+          <p class="text-stone-500 text-sm leading-relaxed">멘토도, 멘티도 검증됩니다. 운영진이 신청서를 검토하고, 멘토가 최종 승인합니다. 아무나 마주하는 자리가 아닙니다.</p>
         </div>
         <div class="scroll-reveal text-center">
           <div class="w-16 h-16 rounded-2xl bg-white border border-stone-200 shadow-card flex items-center justify-center text-3xl mx-auto mb-4">🛡️</div>
           <h3 class="font-semibold text-stone-900 mb-2">신원 보호 & 플랫폼 내 소통</h3>
-          <p class="text-stone-500 text-sm leading-relaxed">개인 연락처와 SNS는 기본으로 숨겨집니다. 만남 전 모든 소통은 플랫폼 내에서만 이루어집니다.</p>
+          <p class="text-stone-500 text-sm leading-relaxed">개인 연락처와 SNS는 기본으로 숨겨집니다. 마주하기 전 모든 소통은 플랫폼 내에서만 이루어집니다.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── 테이블의 두 가지 형태 ────────────────────────────── -->
-  <section id="table" class="py-24 px-6" style="background-color: #FAF6EE;">
+  <!-- ─── 만남의 두 가지 형태 ───────────────────────────────── -->
+  <section id="format" class="py-24 px-6" style="background-color: #FAF6EE;">
     <div class="max-w-4xl mx-auto">
       <div class="scroll-reveal text-center mb-16">
-        <p class="text-stone-400 text-sm tracking-widest uppercase mb-4">THE TABLE</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">테이블의 두 가지 형태</h2>
-        <p class="text-stone-500">모든 테이블은 동일한 원칙으로 운영됩니다.<br/>큐레이션 심사 · 에스크로 결제 · 10% 멘토 명의 기부</p>
+        <p class="text-stone-400 text-sm tracking-widest uppercase mb-4">MAJU</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">마주함의 두 가지 형태</h2>
+        <p class="text-stone-500">모든 자리는 동일한 원칙으로 운영됩니다.<br/>큐레이션 심사 · 에스크로 결제 · 10% 멘토 명의 기부</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-        <!-- 1:1 단독 -->
         <div class="scroll-reveal tier-card featured p-8 rounded-2xl">
           <div class="text-3xl mb-4">🪑</div>
-          <h3 class="text-xl font-bold text-stone-900 mb-2">1:1 단독 테이블</h3>
+          <h3 class="text-xl font-bold text-stone-900 mb-2">1:1 단독 마주</h3>
           <p class="text-stone-500 text-sm mb-6">멘토와 단 둘이. 가장 깊은 개인적 대화.</p>
           <div class="space-y-3 text-sm text-stone-600 mb-8">
             <div class="flex items-start gap-3"><span class="text-amber-600 mt-0.5 flex-shrink-0">✓</span><span>멘토와 1:1 · 90~120분</span></div>
@@ -607,10 +556,9 @@
           <div class="text-xs text-stone-400 mt-1">₩150,000 ~</div>
         </div>
 
-        <!-- 소수 라운드 -->
         <div class="scroll-reveal tier-card p-8 rounded-2xl">
           <div class="text-3xl mb-4">🍽️</div>
-          <h3 class="text-xl font-bold text-stone-900 mb-2">소수 라운드 테이블</h3>
+          <h3 class="text-xl font-bold text-stone-900 mb-2">소수 라운드 마주</h3>
           <p class="text-stone-500 text-sm mb-6">4인 이내 소수 정예. 운영진 동석 진행.</p>
           <div class="space-y-3 text-sm text-stone-600 mb-8">
             <div class="flex items-start gap-3"><span class="text-emerald-600 mt-0.5 flex-shrink-0">✓</span><span>멘토 1인 + 멘티 최대 3인</span></div>
@@ -625,7 +573,7 @@
       </div>
 
       <div class="scroll-reveal text-center mt-10">
-        <p class="text-stone-400 text-sm">모든 테이블의 수익 중 10%는 멘토 명의로 기부됩니다.</p>
+        <p class="text-stone-400 text-sm">모든 마주함의 수익 중 10%는 멘토 명의로 기부됩니다.</p>
       </div>
     </div>
   </section>
@@ -641,10 +589,10 @@
       <div class="space-y-3">
         <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-stone-200 shadow-card cursor-pointer">
           <summary class="font-medium text-stone-900 list-none flex items-center justify-between">
-            신청했다고 바로 만날 수 있나요?
+            신청했다고 바로 마주할 수 있나요?
             <span class="text-stone-400 group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0 ml-4">+</span>
           </summary>
-          <p class="text-stone-500 text-sm leading-relaxed mt-3">아닙니다. 신청서 제출 → 운영진 검토 → 멘토 최종 승인의 단계를 거칩니다. 승인 후에만 결제가 진행되고, 그때부터 만남이 확정됩니다. 이 과정이 만남의 질을 보장합니다.</p>
+          <p class="text-stone-500 text-sm leading-relaxed mt-3">아닙니다. 신청서 제출 → 운영진 검토 → 멘토 최종 승인의 단계를 거칩니다. 승인 후에만 결제가 진행되고, 그때부터 마주함이 확정됩니다. 이 과정이 만남의 질을 보장합니다.</p>
         </details>
 
         <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-stone-200 shadow-card cursor-pointer">
@@ -652,7 +600,7 @@
             거절되면 어떻게 되나요?
             <span class="text-stone-400 group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0 ml-4">+</span>
           </summary>
-          <p class="text-stone-500 text-sm leading-relaxed mt-3">승인 전까지 결제가 없으므로 비용이 전혀 발생하지 않습니다. 운영진으로부터 거절 사유를 간략히 안내받을 수 있으며, 다른 테이블에 재신청하실 수 있습니다.</p>
+          <p class="text-stone-500 text-sm leading-relaxed mt-3">승인 전까지 결제가 없으므로 비용이 전혀 발생하지 않습니다. 운영진으로부터 거절 사유를 간략히 안내받을 수 있으며, 다른 자리에 재신청하실 수 있습니다.</p>
         </details>
 
         <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-stone-200 shadow-card cursor-pointer">
@@ -660,7 +608,7 @@
             기부는 어떻게 처리되나요?
             <span class="text-stone-400 group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0 ml-4">+</span>
           </summary>
-          <p class="text-stone-500 text-sm leading-relaxed mt-3">만남이 완료되면 자동으로 멘토 명의의 기부가 처리됩니다. 기부처는 THE TABLE이 검증한 지정기부금단체 목록에서 멘토가 선택합니다. 기부 내역은 멘토 프로필에 투명하게 공개됩니다.</p>
+          <p class="text-stone-500 text-sm leading-relaxed mt-3">마주함이 완료되면 자동으로 멘토 명의의 기부가 처리됩니다. 기부처는 MAJU가 검증한 지정기부금단체 목록에서 멘토가 선택합니다. 기부 내역은 멘토 프로필에 투명하게 공개됩니다.</p>
         </details>
 
         <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-stone-200 shadow-card cursor-pointer">
@@ -668,7 +616,7 @@
             노쇼나 취소 시 환불이 되나요?
             <span class="text-stone-400 group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0 ml-4">+</span>
           </summary>
-          <p class="text-stone-500 text-sm leading-relaxed mt-3">에스크로 결제이므로 만남 전까지 금액이 보관됩니다. 멘토 사정으로 취소 시 전액 환불, 멘티 사정으로 취소 시 일정에 따른 환불 정책이 적용됩니다.</p>
+          <p class="text-stone-500 text-sm leading-relaxed mt-3">에스크로 결제이므로 마주하기 전까지 금액이 보관됩니다. 멘토 사정으로 취소 시 전액 환불, 멘티 사정으로 취소 시 일정에 따른 환불 정책이 적용됩니다.</p>
         </details>
 
         <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-stone-200 shadow-card cursor-pointer">
@@ -676,7 +624,7 @@
             멘토로 참여하려면 어떻게 해야 하나요?
             <span class="text-stone-400 group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0 ml-4">+</span>
           </summary>
-          <p class="text-stone-500 text-sm leading-relaxed mt-3">멘토 신청 폼을 작성해 주시면 운영진이 검토 후 연락드립니다. 특정 분야의 전문성과 함께 "진지한 사람에게 시간을 나눌 의향"이 있으시면 충분합니다. 영리 목적보다 의미 있는 연결을 원하시는 분을 환영합니다.</p>
+          <p class="text-stone-500 text-sm leading-relaxed mt-3">멘토 신청 폼을 작성해 주시면 운영진이 검토 후 연락드립니다. 특정 분야의 전문성과 함께 "진지한 사람과 마주할 의향"이 있으시면 충분합니다. 영리 목적보다 의미 있는 연결을 원하시는 분을 환영합니다.</p>
         </details>
       </div>
     </div>
@@ -690,7 +638,7 @@
         <h2 class="text-2xl md:text-3xl font-bold text-stone-900 mb-4">멘토로 참여해 주세요</h2>
         <p class="text-stone-600 leading-relaxed mb-8 max-w-xl mx-auto">
           당신의 1~2시간이 누군가의 방향을 바꿀 수 있습니다.<br/>
-          THE TABLE은 의미 있는 만남을 원하는 멘토를 찾고 있습니다.<br/>
+          MAJU는 의미 있는 마주함을 원하는 멘토를 찾고 있습니다.<br/>
           수익의 일부는 당신의 이름으로 세상을 더 좋게 만듭니다.
         </p>
         <button onclick="openModal('mentor')" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white bg-amber-600 hover:bg-amber-700 transition-colors shadow-sm cursor-pointer">
@@ -704,8 +652,8 @@
   <section id="apply" class="py-32 px-6 section-alt">
     <div class="max-w-2xl mx-auto text-center scroll-reveal">
       <h2 class="text-4xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
-        그 자리에<br/>
-        <span class="gold-text">앉으세요</span>
+        지금,<br/>
+        <span class="gold-text">마주하세요</span>
       </h2>
       <p class="text-stone-600 text-lg leading-relaxed mb-10">
         기회는 오는 게 아닙니다. 사는 겁니다.<br/>
@@ -728,16 +676,16 @@
     <div class="max-w-6xl mx-auto">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-8">
         <div>
-          <div class="text-xl font-bold tracking-widest gold-text mb-2">THE TABLE</div>
-          <p class="text-stone-400 text-sm max-w-xs">프리미엄 오프라인 멘토십 플랫폼.<br/>의미 있는 시간 + 사회적 명분의 결합.</p>
+          <div class="text-xl font-bold tracking-widest gold-text mb-2">MAJU</div>
+          <p class="text-stone-400 text-sm max-w-xs">마주하는 사람들을 위한 플랫폼.<br/>의미 있는 만남 + 사회적 명분의 결합.</p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-sm">
           <div>
             <div class="text-stone-700 font-medium mb-2">서비스</div>
             <div class="space-y-1.5 text-stone-400">
-              <div><a href="#story" class="hover:text-stone-700 transition-colors">기회를 산다는 것</a></div>
+              <div><a href="#story" class="hover:text-stone-700 transition-colors">마주한다는 것</a></div>
               <div><a href="#how" class="hover:text-stone-700 transition-colors">어떻게 작동하나요</a></div>
-              <div><a href="#table" class="hover:text-stone-700 transition-colors">테이블 형태</a></div>
+              <div><a href="#format" class="hover:text-stone-700 transition-colors">만남 형태</a></div>
             </div>
           </div>
           <div>
@@ -759,7 +707,7 @@
       </div>
       <div class="divider mb-6"></div>
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-400">
-        <div>© 2026 THE TABLE. All rights reserved.</div>
+        <div>© 2026 MAJU. All rights reserved.</div>
         <div>통신판매중개업 신고 · 에스크로 서비스 제공 · Toss Payments</div>
       </div>
     </div>
@@ -780,8 +728,7 @@
       </div>
 
       <form id="form-mentee" action="https://formspree.io/f/YOUR_MENTEE_FORM_ID" method="POST" onsubmit="handleSubmit(event,'mentee')">
-        <input type="hidden" name="_subject" value="THE TABLE — 새 멘티 신청" />
-
+        <input type="hidden" name="_subject" value="MAJU — 새 멘티 신청" />
         <div class="space-y-4">
           <div>
             <label class="form-label">이름 <span class="text-amber-600 normal-case font-normal">*</span></label>
@@ -808,7 +755,6 @@
             <textarea name="신청이유" class="form-input" placeholder="지금 어떤 고민이 있는지, 어떤 대화를 원하시는지 자유롭게 써주세요."></textarea>
           </div>
         </div>
-
         <button type="submit" id="btn-mentee" class="mt-6 w-full py-3.5 rounded-full font-semibold text-white bg-amber-600 hover:bg-amber-700 transition-colors disabled:opacity-50">
           신청서 제출하기
         </button>
@@ -830,7 +776,7 @@
         <div>
           <p class="text-xs font-semibold text-amber-700 tracking-widest uppercase mb-1">MENTOR</p>
           <h3 class="text-xl font-bold text-stone-900">멘토로 참여하기</h3>
-          <p class="text-stone-500 text-sm mt-1">THE TABLE의 첫 테이블을 함께 만들어주세요.</p>
+          <p class="text-stone-500 text-sm mt-1">MAJU의 첫 마주함을 함께 만들어주세요.</p>
         </div>
         <button onclick="closeModal('mentor')" class="text-stone-400 hover:text-stone-700 transition-colors p-1 -mr-1 mt-0.5">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -838,8 +784,7 @@
       </div>
 
       <form id="form-mentor" action="https://formspree.io/f/YOUR_MENTOR_FORM_ID" method="POST" onsubmit="handleSubmit(event,'mentor')">
-        <input type="hidden" name="_subject" value="THE TABLE — 새 멘토 신청" />
-
+        <input type="hidden" name="_subject" value="MAJU — 새 멘토 신청" />
         <div class="space-y-4">
           <div>
             <label class="form-label">이름 <span class="text-amber-600 normal-case font-normal">*</span></label>
@@ -854,15 +799,14 @@
             <input type="text" name="직함소속" class="form-input" placeholder="OO스타트업 CTO" required />
           </div>
           <div>
-            <label class="form-label">어떤 주제로 테이블을 열고 싶으신가요? <span class="text-amber-600 normal-case font-normal">*</span></label>
-            <input type="text" name="테이블주제" class="form-input" placeholder="초기 스타트업 기술 스택 선택, 투자 유치 전략 등" required />
+            <label class="form-label">어떤 주제로 마주하고 싶으신가요? <span class="text-amber-600 normal-case font-normal">*</span></label>
+            <input type="text" name="마주주제" class="form-input" placeholder="초기 스타트업 기술 스택, 투자 유치 전략 등" required />
           </div>
           <div>
             <label class="form-label">참여 동기</label>
-            <textarea name="참여동기" class="form-input" placeholder="왜 THE TABLE에 멘토로 참여하고 싶으신지 자유롭게 써주세요."></textarea>
+            <textarea name="참여동기" class="form-input" placeholder="왜 MAJU에 멘토로 참여하고 싶으신지 자유롭게 써주세요."></textarea>
           </div>
         </div>
-
         <button type="submit" id="btn-mentor" class="mt-6 w-full py-3.5 rounded-full font-semibold text-white bg-amber-600 hover:bg-amber-700 transition-colors disabled:opacity-50">
           멘토 신청서 제출하기
         </button>
@@ -885,7 +829,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
 
-    /* ── 모달 ── */
     function openModal(type) {
       document.getElementById('modal-' + type).classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -901,14 +844,12 @@
       if (e.key === 'Escape') ['mentee', 'mentor'].forEach(closeModal);
     });
 
-    /* ── Formspree 비동기 제출 ── */
     async function handleSubmit(e, type) {
       e.preventDefault();
       const form = e.target;
       const btn  = document.getElementById('btn-' + type);
       btn.disabled = true;
       btn.textContent = '제출 중…';
-
       try {
         const res = await fetch(form.action, {
           method: 'POST',
