@@ -1,50 +1,47 @@
-# THE TABLE — 개발 로그
+# MAJU — 개발 로그
 
 > 최종 업데이트: 2026-06-03  
-> 현재 단계: **Phase 0 — 정적 랜딩 + 사전 신청 수집**
+> 현재 단계: **Phase 0 완료 — 랜딩 배포 · 신청 수집 가동 중**
 
 ---
 
 ## 프로젝트 한 줄 정의
 
 "워런 버핏 점심 경매" 모델을 한국·식사 단위로 재해석한 **프리미엄 오프라인 멘토십 플랫폼**.  
-멘티는 만나기 어려운 멘토와 식사 자리를 사고, 멘토는 수익 일부를 자기 명의로 기부한다.
+멘티는 만나기 어려운 멘토와 식사 자리를 사고, 멘토는 수익 일부를 자기 명의로 기부한다.  
+브랜드명 **MAJU(마주)** — '마주 앉다'에서 온 한국어 브랜드. 대면·교감을 함축.
+
+---
+
+## 라이브 URL
+
+| 항목 | URL |
+|---|---|
+| 랜딩 페이지 | `https://luckandy1234-cmyk.github.io/maju/landing.html` |
+| GitHub 레포 | `https://github.com/luckandy1234-cmyk/maju` |
+| 신청 수신 이메일 | `luckandy1234@gmail.com` |
 
 ---
 
 ## 현재 디렉토리 구조
 
 ```
-The table/
-├── landing.html                # ✅ 정적 랜딩 페이지 (Phase 0 메인)
+maju/  (GitHub: luckandy1234-cmyk/maju)
+├── landing.html                # ✅ 정적 랜딩 페이지 (배포 완료)
 ├── DEVLOG.md                   # 이 파일
-├── THE_TABLE_개발지침서.md      # 개발 명세서 (스택·도메인·DB·화면 명세)
+├── MAJU_개발지침서.md           # 개발 명세서 (스택·도메인·DB·화면 명세)
 ├── THE_TABLE_제로투원지침.md    # 사업 철학·실행 체크리스트
-├── THE_TABLE_사업기획서.docx    # 사업 기획서 전문
 ├── reference/                  # 디자인 레퍼런스 이미지
 │   ├── ref.1.png
 │   └── ref.2.png
-└── the-table/                  # Next.js 14 앱 (Phase 1 준비 중)
+└── the-table/                  # Next.js 앱 (Phase 1 준비 중 — 구버전)
     ├── app/
-    │   ├── page.tsx            # 랜딩 라우트 (컴포넌트 조합)
+    │   ├── page.tsx
     │   ├── layout.tsx
     │   └── globals.css
     ├── components/
-    │   ├── landing/            # 섹션별 컴포넌트 (구버전 — 업데이트 필요)
-    │   │   ├── HeroSection.tsx
-    │   │   ├── ProblemSection.tsx
-    │   │   ├── SolutionSection.tsx
-    │   │   ├── HowItWorksSection.tsx
-    │   │   ├── MentorsSection.tsx
-    │   │   ├── TrustSection.tsx
-    │   │   ├── TiersSection.tsx
-    │   │   ├── TestimonialsSection.tsx
-    │   │   ├── FaqSection.tsx
-    │   │   ├── CtaSection.tsx
-    │   │   └── ScrollRevealProvider.tsx
+    │   ├── landing/            # 섹션별 컴포넌트 (MAJU 기준 업데이트 필요)
     │   └── layout/
-    │       ├── Navbar.tsx
-    │       └── Footer.tsx
     ├── package.json            # next@16.2.6, react@19.2.4, tailwind@4
     └── ...
 ```
@@ -56,29 +53,44 @@ The table/
 ### 2026-06-02
 - `landing.html` 최초 생성 (다크 테마, 3단계 티어 구조)
 - 제로투원 사고 기반 스토리 구조 설계
-  - 숨겨진 진실(접근권 불평등) → 해결책(기부 명분) → 신뢰(에스크로+큐레이션)
 
 ### 2026-06-03
-**랜딩 페이지 v2 — 콘텐츠 리팩터**
-- [x] MVP 기준으로 테이블 타입 단일화: Coffee/Premium/Signature 3티어 → **1:1 단독 / 소수 라운드** 2포맷
-- [x] 허수 수치 제거: "엄선된 멘토 47+", "누적 기부금 ₩3.2M", "평균 만족도 4.9★" → 삭제
-- [x] THE TABLE 이름 이유 섹션 추가: "A Seat at the Table" 직관적 설명
-- [x] 스토리텔링 섹션 신설: 워런 버핏 점심 → "기회를 산다는 것" 3포인트
-- [x] 실제 후기 섹션 완전 제거 (검증 전 신뢰 요소 사용 금지)
 
-**랜딩 페이지 v3 — 디자인 리팩터**
-- [x] 다크 테마 → 라이트/크림 테마 전면 전환
-  - 배경: `#FAF6EE` (따뜻한 오프화이트)
-  - 구분 섹션: `#EFE5D5` (웜 베이지)
-  - 카드: 흰색 + subtle 그림자
-  - 골드 텍스트: 밝은 배경 최적화 (`#A07828 → #C9A84C → #A07828`)
+**콘텐츠 리팩터**
+- [x] MVP 기준 테이블 단일화: 3티어 → **1:1 단독 마주 / 소수 라운드 마주** 2포맷
+- [x] 허수 수치 전부 제거 (멘토 수, 누적 기부금, 평균 만족도)
+- [x] 스토리텔링 섹션 신설: 워런 버핏 점심 → "마주한다는 것" 3포인트
+- [x] 실제 후기 섹션 완전 제거
+- [x] 불필요 섹션 레이블 제거 (지금의 현실, MAJU의 해법, 프로세스 등)
+
+**브랜딩 전환**
+- [x] THE TABLE → **MAJU** 전면 교체
+- [x] 카피 재작성: "당신 앞의 미래와, 마주하세요"
+- [x] 이름 섹션: "왜 MAJU할까" — 마주 앉다·보다·하다 개념 풀이
+- [x] 인용구: "당신 앞의 미래에 있는 사람과, 마주하세요."
+- [x] 세션 용어 통일: 테이블 → 자리 / 마주함
+
+**디자인 리팩터**
+- [x] 다크 → 라이트 크림 테마 전환
+- [x] 크림 → **순백 + 딥 네이비(#1B2B4B) + 골드** 팔레트로 재전환
+  - 배경: `#FFFFFF` 순백
+  - 스토리 섹션: `#F3F5F9` (연한 네이비 틴트)
+  - 구분 섹션: `#F5F4F2` (쿨 뉴트럴)
+  - CTA 버튼: 딥 네이비 (`#1B2B4B`)
+  - 브랜드 골드: `#9A7520 → #C9A84C → #9A7520` 유지
+  - 네이비 라인: 타임라인·카드 하이라이트 전반
 
 **신청 모달 구현**
-- [x] 멘티 신청 모달: 이름·이메일·관심분야·신청이유 → Formspree 비동기 제출
-- [x] 멘토 신청 모달: 이름·이메일·직함/소속·주제·참여동기 → Formspree 비동기 제출
-- [x] 배경 클릭 / ESC 키로 모달 닫기
-- [x] 제출 성공 → 완료 메시지 전환 (페이지 리로드 없음)
-- [x] 전체 CTA 버튼 → 모달 트리거로 전환
+- [x] 멘티 신청 모달: 이름·이메일·관심분야·신청이유 + Formspree 연동
+- [x] 멘토 신청 모달: 이름·이메일·직함/소속·주제·참여동기 + Formspree 연동
+- [x] 배경 클릭 / ESC 키 닫기, 비동기 제출, 성공 메시지 전환
+- [x] Formspree ID 실 연동 (멘티: `xzdqpavl` / 멘토: `xlgkrwlv`)
+- [x] 이메일 수신 확인 완료 ✅
+
+**인프라**
+- [x] Git 초기화 및 GitHub 레포 생성 (`luckandy1234-cmyk/maju`)
+- [x] GitHub Pages 배포 완료 (Public 레포)
+- [x] 총 7회 커밋
 
 ---
 
@@ -86,49 +98,37 @@ The table/
 
 | 항목 | 상태 | 비고 |
 |---|---|---|
-| 정적 랜딩 페이지 | ✅ 완료 | `landing.html` |
-| 멘티 신청 모달 | ✅ 완료 | Formspree ID 교체 필요 |
-| 멘토 신청 모달 | ✅ 완료 | Formspree ID 교체 필요 |
-| Next.js 앱 스캐폴딩 | ⚠️ 구버전 | `the-table/` 컴포넌트 업데이트 필요 |
+| 랜딩 페이지 | ✅ 완료·배포 | GitHub Pages 라이브 |
+| 멘티 신청 모달 | ✅ 완료·작동 | 이메일 수신 확인 |
+| 멘토 신청 모달 | ✅ 완료·작동 | 이메일 수신 확인 |
+| MAJU 브랜딩 | ✅ 완료 | 카피·컬러·로고 통일 |
+| GitHub 버전 관리 | ✅ 완료 | master 브랜치 |
+| Next.js 앱 | ⚠️ 구버전 | MAJU 기준 업데이트 필요 |
 | Supabase 연동 | ❌ 미착수 | Phase 1 |
-| Toss Payments 에스크로 | ❌ 미착수 | Phase 1 |
+| Toss Payments | ❌ 미착수 | Phase 1 |
 | 도메인 로직 (`lib/domain`) | ❌ 미착수 | Phase 1 |
 
 ---
 
-## Formspree 세팅 (필수)
+## 다음 단계
 
-`landing.html`에서 아래 두 플레이스홀더를 실제 Formspree Form ID로 교체하세요.
+### 지금 당장 (비개발)
+- [ ] 랜딩 링크 공유 → 첫 멘토 3명 직접 섭외
+- [ ] 첫 마주함 1회 수동 운영 → 프로세스 검증
 
-```
-YOUR_MENTEE_FORM_ID  →  formspree.io에서 생성한 멘티 폼 ID
-YOUR_MENTOR_FORM_ID  →  formspree.io에서 생성한 멘토 폼 ID
-```
+### Phase 1 시작 조건
+**첫 멘토 확정 후** 아래 순서로 진행
 
-- 무료 플랜: 월 50건, 이메일 알림 포함
-- 신청 수신 이메일: luckandy1234@gmail.com 연동
-
----
-
-## 다음 단계 (Phase 1 로드맵)
-
-개발지침서 §9 마일스톤 기준:
-
-| 마일스톤 | 내용 | 우선순위 |
-|---|---|---|
-| **M0** | Supabase 연결, 인증(로그인), 기본 레이아웃 | 🔴 다음 |
-| **M1** | `lib/domain` — 티어·기부·예약상태 순수함수 + 단위테스트 | 🔴 다음 |
-| **M2** | DB 마이그레이션·RLS·멘토/멘티 프로필 CRUD | 🟡 |
-| **M3** | 테이블 생성/목록/상세, 1:1·라운드 포맷 가드 | 🟡 |
-| **M4** | 큐레이션 승인 → Toss 에스크로 → 정산·기부 배분 | 🟡 |
-| **M5** | 플랫폼 내 메시지(마스킹), 후기, 신고·차단 | 🟢 |
-| **M6** | 운영진 대시보드 (승인 큐·신고·정산) | 🟢 |
-| **M7+** | 시그니처 옥션, 살롱 시리즈, B2B | ⚪ Phase 2 |
-
-### M0 시작 전 체크리스트
-- [ ] Supabase 프로젝트 생성 → `.env.local`에 키 세팅
-- [ ] `the-table/` 컴포넌트를 최신 `landing.html` 기준으로 동기화
-- [ ] Formspree ID 교체 및 실제 신청 테스트
+| 마일스톤 | 내용 |
+|---|---|
+| **M0** | Supabase 연결 + 인증(로그인) + 기본 레이아웃 |
+| **M1** | `lib/domain` — 기부·예약상태 순수함수 + 단위테스트 |
+| **M2** | DB 마이그레이션·RLS·멘토/멘티 프로필 CRUD |
+| **M3** | 자리 생성·목록·상세, 1:1·라운드 포맷 가드 |
+| **M4** | 큐레이션 승인 → Toss 에스크로 → 정산·기부 배분 |
+| **M5** | 플랫폼 내 메시지(마스킹), 후기, 신고·차단 |
+| **M6** | 운영진 대시보드 (승인 큐·신고·정산) |
+| **M7+** | 시그니처 옥션, 살롱 시리즈, B2B (Phase 2) |
 
 ---
 
@@ -140,8 +140,9 @@ YOUR_MENTOR_FORM_ID  →  formspree.io에서 생성한 멘토 폼 ID
 | 스타일 | Tailwind CSS v4 + shadcn/ui (예정) |
 | DB / Auth | Supabase (Postgres + RLS + Auth) |
 | 결제 | Toss Payments (에스크로) |
-| 폼 (임시) | Formspree |
-| 배포 | Vercel |
+| 폼 (현재) | Formspree (멘티 `xzdqpavl` / 멘토 `xlgkrwlv`) |
+| 배포 (현재) | GitHub Pages |
+| 배포 (예정) | Vercel |
 | 알림 | Resend 또는 Solapi (카카오 알림톡) |
 
 ---
