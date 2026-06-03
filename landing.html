@@ -14,14 +14,13 @@
         extend: {
           fontFamily: { sans: ['Pretendard Variable', 'Pretendard', 'sans-serif'] },
           colors: {
-            cream: { 50: '#FEFCF8', 100: '#FAF6EE', 200: '#F4EDE0', 300: '#EDE0CC' },
+            navy: { DEFAULT: '#1B2B4B', dark: '#142237', pale: '#EEF1F6', mid: '#7B96C4' },
             stone: {
               950: '#0C0A09', 900: '#1C1917', 800: '#292524',
               700: '#44403C', 600: '#57534E', 500: '#78716C',
               400: '#A8A29E', 300: '#D6D3D1', 200: '#E7E5E4', 100: '#F5F5F4',
             },
-            amber: { 400: '#FBBF24', 500: '#F59E0B', 600: '#D97706', 700: '#B45309', 300: '#FCD34D' },
-            gold: '#B8952E',
+            gold: { DEFAULT: '#C9A84C', dark: '#9A7520' },
           },
         }
       }
@@ -30,41 +29,48 @@
   <style>
     * { font-family: 'Pretendard Variable', 'Pretendard', sans-serif; }
     html { scroll-behavior: smooth; }
-    body { background-color: #FAF6EE; color: #292524; }
+    body { background-color: #FFFFFF; color: #141210; }
 
+    /* ── 히어로: 순백 + 극히 미세한 네이비 그라디언트 */
     .hero-bg {
       background:
-        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(201,168,76,0.13) 0%, transparent 65%),
-        #FAF6EE;
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(27,43,75,0.05) 0%, transparent 65%),
+        #FFFFFF;
     }
-    .story-bg { background-color: #F4EDE0; }
+
+    /* ── 스토리 섹션: 아주 연한 네이비 틴트 */
+    .story-bg { background-color: #F3F5F9; }
+
+    /* ── 골드 그라디언트 텍스트 */
     .gold-text {
-      background: linear-gradient(135deg, #A07828 0%, #C9A84C 45%, #A07828 100%);
+      background: linear-gradient(135deg, #9A7520 0%, #C9A84C 50%, #9A7520 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(160,120,40,0.12); }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(27,43,75,0.10); }
 
     .timeline-line::before {
       content: '';
       position: absolute;
       left: 19px; top: 40px; bottom: -40px;
       width: 1px;
-      background: linear-gradient(to bottom, #C9A84C, transparent);
+      background: linear-gradient(to bottom, #1B2B4B, transparent);
     }
-    .divider { background: linear-gradient(to right, transparent, #D6D3D1, transparent); height: 1px; }
+    .divider { background: linear-gradient(to right, transparent, #DDDBD8, transparent); height: 1px; }
 
+    /* ── 티어 카드 */
     .tier-card {
-      border: 1px solid #E7E5E4;
+      border: 1px solid #E3E1DE;
       background: #FFFFFF;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .tier-card:hover { border-color: #C9A84C; box-shadow: 0 8px 24px rgba(160,120,40,0.10); }
+    .tier-card:hover { border-color: #1B2B4B; box-shadow: 0 8px 24px rgba(27,43,75,0.09); }
     .tier-card.featured {
-      border-color: #C9A84C;
-      background: linear-gradient(145deg, #FFFCF4 0%, #FFF7E6 100%);
+      border-color: #1B2B4B;
+      background: linear-gradient(145deg, #F8F9FB 0%, #EEF1F6 100%);
     }
 
     @keyframes fadeUp {
@@ -79,21 +85,30 @@
     .scroll-reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ── 네비: 순백 + 골드 라인 */
     .nav-blur {
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(250,246,238,0.92);
-      border-bottom: 1px solid rgba(201,168,76,0.18);
+      background: rgba(255,255,255,0.94);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
     }
-    .section-alt { background-color: #EFE5D5; }
-    .card-base { background: #FFFFFF; border: 1px solid #E7E5E4; }
-    .badge { background: rgba(184,149,46,0.10); border: 1px solid rgba(184,149,46,0.35); color: #92700E; }
-    .shadow-card { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+
+    /* ── 구분 섹션 */
+    .section-alt { background-color: #F5F4F2; }
+
+    .shadow-card { box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+
+    /* ── 배지 */
+    .badge {
+      background: rgba(27,43,75,0.06);
+      border: 1px solid rgba(27,43,75,0.18);
+      color: #1B2B4B;
+    }
 
     /* ── 모달 */
     .modal-backdrop {
       position: fixed; inset: 0; z-index: 200;
-      background: rgba(28,25,23,0.45);
+      background: rgba(14,20,32,0.5);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       display: flex; align-items: center; justify-content: center;
@@ -110,27 +125,27 @@
       max-height: 90vh; overflow-y: auto;
       transform: translateY(20px) scale(0.98);
       transition: transform 0.25s ease;
-      border: 1px solid #E7E5E4;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.14);
+      border: 1px solid #E3E1DE;
+      box-shadow: 0 24px 64px rgba(14,20,32,0.16);
     }
     .modal-backdrop.open .modal-card { transform: translateY(0) scale(1); }
 
     .form-label {
       display: block;
       font-size: 0.75rem; font-weight: 600;
-      color: #57534E; margin-bottom: 0.4rem;
+      color: #4A4745; margin-bottom: 0.4rem;
       letter-spacing: 0.04em; text-transform: uppercase;
     }
     .form-input {
       width: 100%; padding: 0.75rem 1rem;
-      border: 1.5px solid #E7E5E4; border-radius: 0.75rem;
-      font-size: 0.9rem; color: #292524;
-      background: #FAF6EE; outline: none;
+      border: 1.5px solid #E3E1DE; border-radius: 0.75rem;
+      font-size: 0.9rem; color: #141210;
+      background: #FAFAF9; outline: none;
       transition: border-color 0.2s, background 0.2s;
       font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
     }
     .form-input:focus { border-color: #C9A84C; background: #FFFFFF; }
-    .form-input::placeholder { color: #A8A29E; }
+    .form-input::placeholder { color: #B0ADA9; }
     textarea.form-input { resize: vertical; min-height: 88px; }
     select.form-input {
       appearance: none; cursor: pointer;
@@ -146,14 +161,14 @@
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <span class="text-xl font-bold tracking-widest gold-text">MAJU</span>
       <div class="hidden md:flex items-center gap-8 text-sm text-stone-500">
-        <a href="#story" class="hover:text-stone-900 transition-colors">마주한다는 것</a>
-        <a href="#how" class="hover:text-stone-900 transition-colors">어떻게 작동하나요</a>
-        <a href="#format" class="hover:text-stone-900 transition-colors">만남 형태</a>
-        <a href="#faq" class="hover:text-stone-900 transition-colors">FAQ</a>
+        <a href="#story" class="hover:text-[#141210] transition-colors">마주한다는 것</a>
+        <a href="#how" class="hover:text-[#141210] transition-colors">어떻게 작동하나요</a>
+        <a href="#format" class="hover:text-[#141210] transition-colors">만남 형태</a>
+        <a href="#faq" class="hover:text-[#141210] transition-colors">FAQ</a>
       </div>
       <div class="flex items-center gap-3">
-        <a href="#apply" class="hidden md:block text-sm text-stone-500 hover:text-stone-900 transition-colors">로그인</a>
-        <button onclick="openModal('mentee')" class="px-4 py-2 rounded-full text-sm font-semibold text-white bg-amber-600 hover:bg-amber-700 transition-colors shadow-sm cursor-pointer">
+        <a href="#apply" class="hidden md:block text-sm text-stone-500 hover:text-[#141210] transition-colors">로그인</a>
+        <button onclick="openModal('mentee')" class="px-4 py-2 rounded-full text-sm font-semibold text-white bg-[#1B2B4B] hover:bg-[#142237] transition-colors shadow-sm cursor-pointer">
           자리 신청하기
         </button>
       </div>
@@ -165,19 +180,19 @@
     <div class="max-w-4xl mx-auto text-center">
 
       <div class="fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full badge text-sm mb-8">
-        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] animate-pulse"></span>
         사전 신청 열림 · 첫 번째 멘토 모집 중
       </div>
 
-      <h1 class="fade-up delay-1 text-5xl md:text-7xl font-bold text-stone-900 leading-tight mb-6">
+      <h1 class="fade-up delay-1 text-5xl md:text-7xl font-bold text-[#141210] leading-tight mb-6">
         당신 앞의 미래와,<br/>
         <span class="gold-text">마주하세요</span>
       </h1>
 
-      <p class="fade-up delay-2 text-lg md:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto mb-12">
+      <p class="fade-up delay-2 text-lg md:text-xl text-stone-500 leading-relaxed max-w-2xl mx-auto mb-12">
         워런 버핏과의 점심 한 끼는 수십억 원에 팔립니다.<br class="hidden md:block"/>
         그 돈을 낸 사람들은 미쳤던 게 아닙니다.<br class="hidden md:block"/>
-        그들은 음식이 아닌, <strong class="text-stone-900">기회</strong>를 샀습니다.<br class="hidden md:block"/>
+        그들은 음식이 아닌, <strong class="text-[#141210]">기회</strong>를 샀습니다.<br class="hidden md:block"/>
         <br class="hidden md:block"/>
         당신이 막혀 있는 그 지점,<br class="hidden md:block"/>
         이미 그 길을 걸어간 사람이 이 나라에 있습니다.<br class="hidden md:block"/>
@@ -185,10 +200,10 @@
       </p>
 
       <div class="fade-up delay-3 flex flex-col sm:flex-row gap-4 justify-center">
-        <button onclick="openModal('mentee')" class="px-8 py-4 rounded-full font-semibold text-white bg-amber-600 hover:bg-amber-700 transition-all text-base shadow-md shadow-amber-200 cursor-pointer">
+        <button onclick="openModal('mentee')" class="px-8 py-4 rounded-full font-semibold text-white bg-[#1B2B4B] hover:bg-[#142237] transition-all text-base shadow-md shadow-navy/10 cursor-pointer">
           자리 신청하기
         </button>
-        <button onclick="openModal('mentor')" class="px-8 py-4 rounded-full font-semibold text-stone-700 border border-stone-300 hover:border-amber-500 hover:text-amber-700 bg-white transition-all text-base shadow-sm cursor-pointer">
+        <button onclick="openModal('mentor')" class="px-8 py-4 rounded-full font-semibold text-[#1B2B4B] border border-[#1B2B4B] hover:bg-[#1B2B4B] hover:text-white bg-white transition-all text-base shadow-sm cursor-pointer">
           멘토로 참여하기
         </button>
       </div>
@@ -200,11 +215,11 @@
     <div class="max-w-3xl mx-auto">
       <div class="scroll-reveal text-center mb-16">
         <p class="text-stone-400 text-sm tracking-widest uppercase mb-4">MAJU가 존재하는 이유</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900">마주한다는 것</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#141210]">마주한다는 것</h2>
       </div>
 
       <div class="scroll-reveal mb-16 text-center max-w-2xl mx-auto">
-        <p class="text-stone-700 text-lg leading-relaxed mb-6">
+        <p class="text-[#2A2826] text-lg leading-relaxed mb-6">
           인생을 바꾸는 결정적 순간은 대개 대화에서 옵니다.<br/>
           강의에서도, 책에서도 아닌 — 마주 앉아 나누는 진짜 대화에서.
         </p>
@@ -215,35 +230,35 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-stone-200 text-center shadow-card">
-          <div class="w-12 h-12 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 font-bold text-lg mx-auto mb-4">01</div>
-          <h3 class="font-semibold text-stone-900 mb-2">결정적 1시간</h3>
+        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-[#E3E1DE] text-center shadow-card">
+          <div class="w-12 h-12 rounded-full bg-[#EEF1F6] border border-[#C5D0E0] flex items-center justify-center text-[#1B2B4B] font-bold text-lg mx-auto mb-4">01</div>
+          <h3 class="font-semibold text-[#141210] mb-2">결정적 1시간</h3>
           <p class="text-stone-500 text-sm leading-relaxed">한 번의 올바른 대화가 수년의 시행착오를 줄입니다. 방향이 맞으면 속도는 따라옵니다.</p>
         </div>
-        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-stone-200 text-center shadow-card">
-          <div class="w-12 h-12 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 font-bold text-lg mx-auto mb-4">02</div>
-          <h3 class="font-semibold text-stone-900 mb-2 text-[13.5px] tracking-tight whitespace-nowrap">마주할 기회는 만들 수 있다</h3>
+        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-[#E3E1DE] text-center shadow-card">
+          <div class="w-12 h-12 rounded-full bg-[#EEF1F6] border border-[#C5D0E0] flex items-center justify-center text-[#1B2B4B] font-bold text-lg mx-auto mb-4">02</div>
+          <h3 class="font-semibold text-[#141210] mb-2 text-[13.5px] tracking-tight whitespace-nowrap">마주할 기회는 만들 수 있다</h3>
           <p class="text-stone-500 text-sm leading-relaxed">인맥도, 운도 필요 없습니다. 진지함과 준비가 있는 사람이라면 누구에게나 그 자리가 열립니다.</p>
         </div>
-        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-stone-200 text-center shadow-card">
-          <div class="w-12 h-12 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 font-bold text-lg mx-auto mb-4">03</div>
-          <h3 class="font-semibold text-stone-900 mb-2">질감이 다른 시간</h3>
+        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-[#E3E1DE] text-center shadow-card">
+          <div class="w-12 h-12 rounded-full bg-[#EEF1F6] border border-[#C5D0E0] flex items-center justify-center text-[#1B2B4B] font-bold text-lg mx-auto mb-4">03</div>
+          <h3 class="font-semibold text-[#141210] mb-2">질감이 다른 시간</h3>
           <p class="text-stone-500 text-sm leading-relaxed">만남의 수익 일부가 기부로 연결됩니다. 그 사실이 멘토도, 멘티도 더 진심으로 임하게 만듭니다.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── 왜 MAJU인가 ────────────────────────────────────────── -->
-  <section class="py-24 px-6" style="background-color: #FAF6EE;">
+  <!-- ─── 왜 MAJU할까 ────────────────────────────────────────── -->
+  <section class="py-24 px-6 bg-white">
     <div class="max-w-3xl mx-auto">
       <div class="divider mb-16"></div>
 
       <div class="scroll-reveal text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#141210] mb-6">
           왜 <span class="gold-text">MAJU</span>할까
         </h2>
-        <p class="text-stone-600 text-lg leading-relaxed max-w-2xl mx-auto">
+        <p class="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto">
           마주 앉다. 마주 보다. 마주하다.<br/>
           한국어에서 '마주'는 단순한 만남이 아닙니다.<br/>
           같은 눈높이에서, 서로의 시선이 닿는 그 순간.<br/>
@@ -253,18 +268,18 @@
       </div>
 
       <div class="scroll-reveal grid md:grid-cols-2 gap-6 mb-12">
-        <div class="p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
-          <div class="text-amber-700 text-xs font-semibold tracking-widest uppercase mb-3">마주한다는 것</div>
+        <div class="p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card">
+          <div class="text-[#1B2B4B] text-xs font-semibold tracking-widest uppercase mb-3">마주한다는 것</div>
           <p class="text-stone-600 text-sm leading-relaxed">'마주하다' — 서로 얼굴을 맞대고 앉다. 회의실도, 강단도 아닌 그 자리에서 직함은 내려앉고 당신의 진짜 이야기가 시작됩니다.</p>
         </div>
-        <div class="p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
-          <div class="text-amber-700 text-xs font-semibold tracking-widest uppercase mb-3">MAJU의 약속</div>
+        <div class="p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card">
+          <div class="text-[#1B2B4B] text-xs font-semibold tracking-widest uppercase mb-3">MAJU의 약속</div>
           <p class="text-stone-600 text-sm leading-relaxed">진지함과 준비가 있는 사람이라면, 타이틀이나 인맥과 관계없이 — 누구에게나 그 마주함의 자리를 열겠다는 약속입니다.</p>
         </div>
       </div>
 
       <div class="scroll-reveal text-center">
-        <p class="text-xl md:text-2xl font-medium text-stone-700 leading-relaxed">
+        <p class="text-xl md:text-2xl font-medium text-[#2A2826] leading-relaxed">
           "당신 앞의 미래에 있는 사람과,<br/>
           <span class="gold-text font-bold">마주하세요.</span>"
         </p>
@@ -276,30 +291,30 @@
   <section class="py-24 px-6 section-alt">
     <div class="max-w-3xl mx-auto">
       <div class="scroll-reveal text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900 leading-snug">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#141210] leading-snug">
           그 문은 왜 닫혀 있을까요
         </h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
+        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card">
           <div class="text-3xl mb-3">🔒</div>
-          <h3 class="font-semibold text-stone-900 mb-2">인맥 없이는 불가능한 만남</h3>
+          <h3 class="font-semibold text-[#141210] mb-2">인맥 없이는 불가능한 만남</h3>
           <p class="text-stone-500 text-sm leading-relaxed">CTO에게 커피 챗을 요청하려면 지인 소개가 필요합니다. 아무리 실력이 있어도, 아무리 진지해도 — 접근 자체가 막혀 있습니다.</p>
         </div>
-        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
+        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card">
           <div class="text-3xl mb-3">🎰</div>
-          <h3 class="font-semibold text-stone-900 mb-2">운에 달린 만남</h3>
+          <h3 class="font-semibold text-[#141210] mb-2">운에 달린 만남</h3>
           <p class="text-stone-500 text-sm leading-relaxed">링크드인 DM, 컨퍼런스 명함 교환 — 운이 좋아야 답장이 옵니다. 체계도, 보장도, 안전도 없습니다.</p>
         </div>
-        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
+        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card">
           <div class="text-3xl mb-3">💸</div>
-          <h3 class="font-semibold text-stone-900 mb-2">거래가 되어버린 멘토링</h3>
+          <h3 class="font-semibold text-[#141210] mb-2">거래가 되어버린 멘토링</h3>
           <p class="text-stone-500 text-sm leading-relaxed">좋은 멘토일수록 "시간을 판다"는 거래에 불편함을 느낍니다. 멘토도, 멘티도 어색한 관계가 됩니다.</p>
         </div>
-        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
+        <div class="scroll-reveal p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card">
           <div class="text-3xl mb-3">🛡️</div>
-          <h3 class="font-semibold text-stone-900 mb-2">검증되지 않은 자리</h3>
+          <h3 class="font-semibold text-[#141210] mb-2">검증되지 않은 자리</h3>
           <p class="text-stone-500 text-sm leading-relaxed">누가 참석하는지, 어떤 맥락인지, 안전한 자리인지 — 멘토 입장에서도 불확실합니다. 그래서 대부분 거절합니다.</p>
         </div>
       </div>
@@ -307,45 +322,45 @@
   </section>
 
   <!-- ─── MAJU의 해법 ───────────────────────────────────────── -->
-  <section class="py-24 px-6" style="background-color: #FAF6EE;">
+  <section class="py-24 px-6 bg-white">
     <div class="max-w-3xl mx-auto text-center">
       <div class="scroll-reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#141210] mb-6">
           좋은 사람들이 마주하는 데는<br/>
           <span class="gold-text">이유가 필요합니다</span>
         </h2>
-        <p class="text-stone-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+        <p class="text-stone-500 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
           MAJU는 그 이유를 만들었습니다.<br/>
-          멘토가 자리를 열면, 수익의 일부가 <strong class="text-stone-900">멘토 본인의 이름으로 기부</strong>됩니다.<br/>
-          시간을 파는 것이 아니라, <strong class="text-stone-900">의미 있는 마주함 + 사회적 명분</strong>을 함께 만드는 것입니다.
+          멘토가 자리를 열면, 수익의 일부가 <strong class="text-[#141210]">멘토 본인의 이름으로 기부</strong>됩니다.<br/>
+          시간을 파는 것이 아니라, <strong class="text-[#141210]">의미 있는 마주함 + 사회적 명분</strong>을 함께 만드는 것입니다.
         </p>
       </div>
 
       <div class="scroll-reveal flex flex-col md:flex-row items-center justify-center gap-3 mb-10">
-        <div class="px-5 py-4 rounded-2xl bg-white border border-stone-200 shadow-card text-center min-w-[130px]">
+        <div class="px-5 py-4 rounded-2xl bg-white border border-[#E3E1DE] shadow-card text-center min-w-[130px]">
           <div class="text-2xl mb-1">🙋</div>
-          <div class="text-sm font-semibold text-stone-800">멘티 결제</div>
+          <div class="text-sm font-semibold text-[#141210]">멘티 결제</div>
           <div class="text-xs text-stone-400 mt-0.5">에스크로 보관</div>
         </div>
         <div class="text-stone-300 font-mono text-xl hidden md:block">→</div>
         <div class="text-stone-300 font-mono text-xl md:hidden">↓</div>
-        <div class="px-5 py-4 rounded-2xl bg-amber-50 border border-amber-200 shadow-card text-center min-w-[130px]">
+        <div class="px-5 py-4 rounded-2xl bg-[#EEF1F6] border border-[#C5D0E0] shadow-card text-center min-w-[130px]">
           <div class="text-2xl mb-1">🤝</div>
-          <div class="text-sm font-semibold text-stone-800">마주함 성사</div>
+          <div class="text-sm font-semibold text-[#141210]">마주함 성사</div>
           <div class="text-xs text-stone-400 mt-0.5">큐레이션 · 검증</div>
         </div>
         <div class="text-stone-300 font-mono text-xl hidden md:block">→</div>
         <div class="text-stone-300 font-mono text-xl md:hidden">↓</div>
-        <div class="px-5 py-4 rounded-2xl bg-white border border-stone-200 shadow-card text-center min-w-[130px]">
+        <div class="px-5 py-4 rounded-2xl bg-white border border-[#E3E1DE] shadow-card text-center min-w-[130px]">
           <div class="text-2xl mb-1">💝</div>
-          <div class="text-sm font-semibold text-stone-800">기부 자동 확정</div>
-          <div class="text-xs text-amber-700 mt-0.5">멘토 명의로 기록</div>
+          <div class="text-sm font-semibold text-[#141210]">기부 자동 확정</div>
+          <div class="text-xs text-[#9A7520] mt-0.5">멘토 명의로 기록</div>
         </div>
         <div class="text-stone-300 font-mono text-xl hidden md:block">→</div>
         <div class="text-stone-300 font-mono text-xl md:hidden">↓</div>
-        <div class="px-5 py-4 rounded-2xl bg-white border border-stone-200 shadow-card text-center min-w-[130px]">
+        <div class="px-5 py-4 rounded-2xl bg-white border border-[#E3E1DE] shadow-card text-center min-w-[130px]">
           <div class="text-2xl mb-1">🏅</div>
-          <div class="text-sm font-semibold text-stone-800">명예 배지 적립</div>
+          <div class="text-sm font-semibold text-[#141210]">명예 배지 적립</div>
           <div class="text-xs text-stone-400 mt-0.5">프로필에 누적</div>
         </div>
       </div>
@@ -358,31 +373,31 @@
   <section id="how" class="py-24 px-6 section-alt">
     <div class="max-w-3xl mx-auto">
       <div class="scroll-reveal text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900">어떻게 작동하나요</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#141210]">어떻게 작동하나요</h2>
       </div>
 
       <div class="space-y-12">
         <div class="scroll-reveal">
-          <p class="text-amber-700 text-sm font-semibold mb-6 tracking-widest uppercase">멘티의 여정</p>
+          <p class="text-[#1B2B4B] text-sm font-semibold mb-6 tracking-widest uppercase">멘티의 여정</p>
           <div class="space-y-6">
             <div class="relative pl-12 timeline-line">
-              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-700 font-bold text-sm">1</div>
+              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-[#EEF1F6] border border-[#7B96C4] flex items-center justify-center text-[#1B2B4B] font-bold text-sm">1</div>
               <div>
-                <h3 class="font-semibold text-stone-900 mb-1">자리 탐색 & 신청</h3>
+                <h3 class="font-semibold text-[#141210] mb-1">자리 탐색 & 신청</h3>
                 <p class="text-stone-500 text-sm leading-relaxed">공개된 자리를 둘러보고, 왜 이 멘토와 마주하고 싶은지 진지하게 작성합니다. 아무나 받지 않습니다.</p>
               </div>
             </div>
             <div class="relative pl-12 timeline-line">
-              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-700 font-bold text-sm">2</div>
+              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-[#EEF1F6] border border-[#7B96C4] flex items-center justify-center text-[#1B2B4B] font-bold text-sm">2</div>
               <div>
-                <h3 class="font-semibold text-stone-900 mb-1">큐레이션 승인 대기</h3>
+                <h3 class="font-semibold text-[#141210] mb-1">큐레이션 승인 대기</h3>
                 <p class="text-stone-500 text-sm leading-relaxed">운영진과 멘토가 신청서를 검토합니다. 승인 후에만 결제로 진행됩니다. 거절 시 전액 미청구.</p>
               </div>
             </div>
             <div class="relative pl-12">
-              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-amber-100 border-2 border-amber-400 flex items-center justify-center text-amber-700 font-bold text-sm">3</div>
+              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-[#D6DDED] border-2 border-[#1B2B4B] flex items-center justify-center text-[#1B2B4B] font-bold text-sm">3</div>
               <div>
-                <h3 class="font-semibold text-stone-900 mb-1">마주하기</h3>
+                <h3 class="font-semibold text-[#141210] mb-1">마주하기</h3>
                 <p class="text-stone-500 text-sm leading-relaxed">식사를 함께합니다. 이후 양방향 후기가 남겨지고, 기부가 확정됩니다.</p>
               </div>
             </div>
@@ -392,26 +407,26 @@
         <div class="divider"></div>
 
         <div class="scroll-reveal">
-          <p class="text-amber-700 text-sm font-semibold mb-6 tracking-widest uppercase">멘토의 여정</p>
+          <p class="text-[#1B2B4B] text-sm font-semibold mb-6 tracking-widest uppercase">멘토의 여정</p>
           <div class="space-y-6">
             <div class="relative pl-12 timeline-line">
-              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-white border border-stone-300 flex items-center justify-center text-stone-600 font-bold text-sm">1</div>
+              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-white border border-[#E3E1DE] flex items-center justify-center text-stone-500 font-bold text-sm">1</div>
               <div>
-                <h3 class="font-semibold text-stone-900 mb-1">자리 오픈</h3>
+                <h3 class="font-semibold text-[#141210] mb-1">자리 오픈</h3>
                 <p class="text-stone-500 text-sm leading-relaxed">일정, 포맷(1:1 또는 소수 라운드), 가격을 설정합니다. 검증된 멘토만 자리를 열 수 있습니다.</p>
               </div>
             </div>
             <div class="relative pl-12 timeline-line">
-              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-white border border-stone-300 flex items-center justify-center text-stone-600 font-bold text-sm">2</div>
+              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-white border border-[#E3E1DE] flex items-center justify-center text-stone-500 font-bold text-sm">2</div>
               <div>
-                <h3 class="font-semibold text-stone-900 mb-1">신청자 검토 & 승인</h3>
+                <h3 class="font-semibold text-[#141210] mb-1">신청자 검토 & 승인</h3>
                 <p class="text-stone-500 text-sm leading-relaxed">신청서를 보고 직접 승인하거나, 운영진에게 위임할 수 있습니다. 원치 않는 만남은 없습니다.</p>
               </div>
             </div>
             <div class="relative pl-12">
-              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-white border border-stone-300 flex items-center justify-center text-stone-600 font-bold text-sm">3</div>
+              <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-white border border-[#E3E1DE] flex items-center justify-center text-stone-500 font-bold text-sm">3</div>
               <div>
-                <h3 class="font-semibold text-stone-900 mb-1">명의 기부 & 배지 누적</h3>
+                <h3 class="font-semibold text-[#141210] mb-1">명의 기부 & 배지 누적</h3>
                 <p class="text-stone-500 text-sm leading-relaxed">마주함 후 수익의 10%가 자동으로 멘토 명의로 기부됩니다. 프로필에 누적 기부 금액과 횟수가 배지로 남습니다.</p>
               </div>
             </div>
@@ -422,19 +437,19 @@
   </section>
 
   <!-- ─── 멘토 예시 ────────────────────────────────────────── -->
-  <section id="mentors" class="py-24 px-6" style="background-color: #FAF6EE;">
+  <section id="mentors" class="py-24 px-6 bg-white">
     <div class="max-w-5xl mx-auto">
       <div class="scroll-reveal text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">마주할 수 있는 사람들</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#141210] mb-4">마주할 수 있는 사람들</h2>
         <p class="text-stone-500">모든 멘토는 MAJU 운영진의 검증을 거칩니다.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="scroll-reveal card-hover p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
+        <div class="scroll-reveal card-hover p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card">
           <div class="flex items-start gap-4 mb-4">
             <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">K</div>
             <div>
-              <div class="font-semibold text-stone-900">김 OO</div>
+              <div class="font-semibold text-[#141210]">김 OO</div>
               <div class="text-sm text-stone-500">Series B 스타트업 CTO</div>
               <div class="text-xs text-stone-400 mt-0.5">전 카카오 엔지니어링</div>
             </div>
@@ -444,38 +459,38 @@
             <span class="px-2 py-0.5 rounded text-xs bg-stone-100 text-stone-600">백엔드 아키텍처</span>
             <span class="px-2 py-0.5 rounded text-xs bg-stone-100 text-stone-600">초기 팀 빌딩</span>
           </div>
-          <div class="pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-stone-400">
+          <div class="pt-4 border-t border-[#F0EEEB] flex items-center justify-between text-xs text-stone-400">
             <span>1:1 단독 · 90분</span>
-            <span class="text-amber-700 font-medium">₩250,000</span>
+            <span class="text-[#9A7520] font-medium">₩250,000</span>
           </div>
         </div>
 
-        <div class="scroll-reveal card-hover p-6 rounded-2xl border-2 border-amber-400 bg-gradient-to-br from-amber-50 to-white relative shadow-card">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-amber-500 text-white text-xs font-semibold">첫 마주함</div>
+        <div class="scroll-reveal card-hover p-6 rounded-2xl border-2 border-[#C9A84C] bg-gradient-to-br from-[#FFFDF7] to-white relative shadow-card">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#1B2B4B] text-white text-xs font-semibold">첫 마주함</div>
           <div class="flex items-start gap-4 mb-4">
             <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">L</div>
             <div>
-              <div class="font-semibold text-stone-900">이 OO</div>
+              <div class="font-semibold text-[#141210]">이 OO</div>
               <div class="text-sm text-stone-500">VC 파트너</div>
               <div class="text-xs text-stone-400 mt-0.5">전 글로벌 전략 컨설팅</div>
             </div>
           </div>
           <p class="text-stone-500 text-sm leading-relaxed mb-4">"VC 미팅 준비가 안 된 창업자를 만나면 제가 더 아파요. 피칭 전 30분의 피드백이 라운드를 바꿉니다."</p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-2 py-0.5 rounded text-xs bg-amber-100 text-amber-700">투자 유치</span>
-            <span class="px-2 py-0.5 rounded text-xs bg-amber-100 text-amber-700">VC 생태계</span>
+            <span class="px-2 py-0.5 rounded text-xs bg-[#EEF1F6] text-[#1B2B4B]">투자 유치</span>
+            <span class="px-2 py-0.5 rounded text-xs bg-[#EEF1F6] text-[#1B2B4B]">VC 생태계</span>
           </div>
-          <div class="pt-4 border-t border-amber-100 flex items-center justify-between text-xs text-stone-400">
+          <div class="pt-4 border-t border-[#F0EEEB] flex items-center justify-between text-xs text-stone-400">
             <span>소수 라운드 · 4인</span>
-            <span class="text-amber-700 font-medium">₩380,000</span>
+            <span class="text-[#9A7520] font-medium">₩380,000</span>
           </div>
         </div>
 
-        <div class="scroll-reveal card-hover p-6 rounded-2xl bg-white border border-stone-200 shadow-card">
+        <div class="scroll-reveal card-hover p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card">
           <div class="flex items-start gap-4 mb-4">
             <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">P</div>
             <div>
-              <div class="font-semibold text-stone-900">박 OO</div>
+              <div class="font-semibold text-[#141210]">박 OO</div>
               <div class="text-sm text-stone-500">글로벌 브랜드 CMO</div>
               <div class="text-xs text-stone-400 mt-0.5">전 뉴욕 광고 에이전시</div>
             </div>
@@ -485,9 +500,9 @@
             <span class="px-2 py-0.5 rounded text-xs bg-stone-100 text-stone-600">브랜딩</span>
             <span class="px-2 py-0.5 rounded text-xs bg-stone-100 text-stone-600">마케팅 전략</span>
           </div>
-          <div class="pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-stone-400">
+          <div class="pt-4 border-t border-[#F0EEEB] flex items-center justify-between text-xs text-stone-400">
             <span>1:1 단독 · 120분</span>
-            <span class="text-amber-700 font-medium">₩420,000</span>
+            <span class="text-[#9A7520] font-medium">₩420,000</span>
           </div>
         </div>
       </div>
@@ -502,23 +517,23 @@
   <section class="py-24 px-6 section-alt">
     <div class="max-w-4xl mx-auto">
       <div class="scroll-reveal text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900">안심하고 마주할 수 있는 이유</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#141210]">안심하고 마주할 수 있는 이유</h2>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
         <div class="scroll-reveal text-center">
-          <div class="w-16 h-16 rounded-2xl bg-white border border-stone-200 shadow-card flex items-center justify-center text-3xl mx-auto mb-4">🔐</div>
-          <h3 class="font-semibold text-stone-900 mb-2">에스크로 보호 결제</h3>
+          <div class="w-16 h-16 rounded-2xl bg-white border border-[#E3E1DE] shadow-card flex items-center justify-center text-3xl mx-auto mb-4">🔐</div>
+          <h3 class="font-semibold text-[#141210] mb-2">에스크로 보호 결제</h3>
           <p class="text-stone-500 text-sm leading-relaxed">Toss Payments 에스크로로 결제금이 보관됩니다. 마주함이 실제로 이루어진 후에만 정산됩니다. 노쇼·취소 시 전액 환불.</p>
         </div>
         <div class="scroll-reveal text-center">
-          <div class="w-16 h-16 rounded-2xl bg-white border border-stone-200 shadow-card flex items-center justify-center text-3xl mx-auto mb-4">🎯</div>
-          <h3 class="font-semibold text-stone-900 mb-2">양방향 큐레이션</h3>
+          <div class="w-16 h-16 rounded-2xl bg-white border border-[#E3E1DE] shadow-card flex items-center justify-center text-3xl mx-auto mb-4">🎯</div>
+          <h3 class="font-semibold text-[#141210] mb-2">양방향 큐레이션</h3>
           <p class="text-stone-500 text-sm leading-relaxed">멘토도, 멘티도 검증됩니다. 운영진이 신청서를 검토하고, 멘토가 최종 승인합니다. 아무나 마주하는 자리가 아닙니다.</p>
         </div>
         <div class="scroll-reveal text-center">
-          <div class="w-16 h-16 rounded-2xl bg-white border border-stone-200 shadow-card flex items-center justify-center text-3xl mx-auto mb-4">🛡️</div>
-          <h3 class="font-semibold text-stone-900 mb-2">신원 보호 & 플랫폼 내 소통</h3>
+          <div class="w-16 h-16 rounded-2xl bg-white border border-[#E3E1DE] shadow-card flex items-center justify-center text-3xl mx-auto mb-4">🛡️</div>
+          <h3 class="font-semibold text-[#141210] mb-2">신원 보호 & 플랫폼 내 소통</h3>
           <p class="text-stone-500 text-sm leading-relaxed">개인 연락처와 SNS는 기본으로 숨겨집니다. 마주하기 전 모든 소통은 플랫폼 내에서만 이루어집니다.</p>
         </div>
       </div>
@@ -526,41 +541,41 @@
   </section>
 
   <!-- ─── 만남의 두 가지 형태 ───────────────────────────────── -->
-  <section id="format" class="py-24 px-6" style="background-color: #FAF6EE;">
+  <section id="format" class="py-24 px-6 bg-white">
     <div class="max-w-4xl mx-auto">
       <div class="scroll-reveal text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">마주함의 두 가지 형태</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#141210] mb-4">마주함의 두 가지 형태</h2>
         <p class="text-stone-500">모든 자리는 동일한 원칙으로 운영됩니다.<br/>큐레이션 심사 · 에스크로 결제 · 10% 멘토 명의 기부</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
         <div class="scroll-reveal tier-card featured p-8 rounded-2xl">
           <div class="text-3xl mb-4">🪑</div>
-          <h3 class="text-xl font-bold text-stone-900 mb-2">1:1 단독 마주</h3>
+          <h3 class="text-xl font-bold text-[#141210] mb-2">1:1 단독 마주</h3>
           <p class="text-stone-500 text-sm mb-6">멘토와 단 둘이. 가장 깊은 개인적 대화.</p>
           <div class="space-y-3 text-sm text-stone-600 mb-8">
-            <div class="flex items-start gap-3"><span class="text-amber-600 mt-0.5 flex-shrink-0">✓</span><span>멘토와 1:1 · 90~120분</span></div>
-            <div class="flex items-start gap-3"><span class="text-amber-600 mt-0.5 flex-shrink-0">✓</span><span>커피, 브런치, 런치, 디너 중 선택</span></div>
-            <div class="flex items-start gap-3"><span class="text-amber-600 mt-0.5 flex-shrink-0">✓</span><span>완전한 집중 — 내 이야기만</span></div>
-            <div class="flex items-start gap-3"><span class="text-amber-600 mt-0.5 flex-shrink-0">✓</span><span>큐레이션 심사 필수</span></div>
-            <div class="flex items-start gap-3"><span class="text-amber-600 mt-0.5 flex-shrink-0">✓</span><span>에스크로 결제 보호</span></div>
+            <div class="flex items-start gap-3"><span class="text-[#1B2B4B] mt-0.5 flex-shrink-0">✓</span><span>멘토와 1:1 · 90~120분</span></div>
+            <div class="flex items-start gap-3"><span class="text-[#1B2B4B] mt-0.5 flex-shrink-0">✓</span><span>커피, 브런치, 런치, 디너 중 선택</span></div>
+            <div class="flex items-start gap-3"><span class="text-[#1B2B4B] mt-0.5 flex-shrink-0">✓</span><span>완전한 집중 — 내 이야기만</span></div>
+            <div class="flex items-start gap-3"><span class="text-[#1B2B4B] mt-0.5 flex-shrink-0">✓</span><span>큐레이션 심사 필수</span></div>
+            <div class="flex items-start gap-3"><span class="text-[#1B2B4B] mt-0.5 flex-shrink-0">✓</span><span>에스크로 결제 보호</span></div>
           </div>
-          <div class="text-xl font-bold text-stone-900">멘토 설정 가격</div>
+          <div class="text-xl font-bold text-[#141210]">멘토 설정 가격</div>
           <div class="text-xs text-stone-400 mt-1">₩150,000 ~</div>
         </div>
 
         <div class="scroll-reveal tier-card p-8 rounded-2xl">
           <div class="text-3xl mb-4">🍽️</div>
-          <h3 class="text-xl font-bold text-stone-900 mb-2">소수 라운드 마주</h3>
+          <h3 class="text-xl font-bold text-[#141210] mb-2">소수 라운드 마주</h3>
           <p class="text-stone-500 text-sm mb-6">4인 이내 소수 정예. 운영진 동석 진행.</p>
           <div class="space-y-3 text-sm text-stone-600 mb-8">
-            <div class="flex items-start gap-3"><span class="text-emerald-600 mt-0.5 flex-shrink-0">✓</span><span>멘토 1인 + 멘티 최대 3인</span></div>
-            <div class="flex items-start gap-3"><span class="text-emerald-600 mt-0.5 flex-shrink-0">✓</span><span>운영진 동석 — 자리 진행 보조</span></div>
-            <div class="flex items-start gap-3"><span class="text-emerald-600 mt-0.5 flex-shrink-0">✓</span><span>서로 다른 관점의 교차</span></div>
-            <div class="flex items-start gap-3"><span class="text-emerald-600 mt-0.5 flex-shrink-0">✓</span><span>큐레이션 심사 (더 엄격)</span></div>
-            <div class="flex items-start gap-3"><span class="text-emerald-600 mt-0.5 flex-shrink-0">✓</span><span>에스크로 결제 보호</span></div>
+            <div class="flex items-start gap-3"><span class="text-stone-500 mt-0.5 flex-shrink-0">✓</span><span>멘토 1인 + 멘티 최대 3인</span></div>
+            <div class="flex items-start gap-3"><span class="text-stone-500 mt-0.5 flex-shrink-0">✓</span><span>운영진 동석 — 자리 진행 보조</span></div>
+            <div class="flex items-start gap-3"><span class="text-stone-500 mt-0.5 flex-shrink-0">✓</span><span>서로 다른 관점의 교차</span></div>
+            <div class="flex items-start gap-3"><span class="text-stone-500 mt-0.5 flex-shrink-0">✓</span><span>큐레이션 심사 (더 엄격)</span></div>
+            <div class="flex items-start gap-3"><span class="text-stone-500 mt-0.5 flex-shrink-0">✓</span><span>에스크로 결제 보호</span></div>
           </div>
-          <div class="text-xl font-bold text-stone-900">멘토 설정 가격</div>
+          <div class="text-xl font-bold text-[#141210]">멘토 설정 가격</div>
           <div class="text-xs text-stone-400 mt-1">₩200,000 ~ (1인 기준)</div>
         </div>
       </div>
@@ -575,44 +590,44 @@
   <section id="faq" class="py-24 px-6 section-alt">
     <div class="max-w-2xl mx-auto">
       <div class="scroll-reveal text-center mb-16">
-        <h2 class="text-3xl font-bold text-stone-900">궁금한 점이 있으신가요</h2>
+        <h2 class="text-3xl font-bold text-[#141210]">궁금한 점이 있으신가요</h2>
       </div>
 
       <div class="space-y-3">
-        <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-stone-200 shadow-card cursor-pointer">
-          <summary class="font-medium text-stone-900 list-none flex items-center justify-between">
+        <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card cursor-pointer">
+          <summary class="font-medium text-[#141210] list-none flex items-center justify-between">
             신청했다고 바로 마주할 수 있나요?
             <span class="text-stone-400 group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0 ml-4">+</span>
           </summary>
           <p class="text-stone-500 text-sm leading-relaxed mt-3">아닙니다. 신청서 제출 → 운영진 검토 → 멘토 최종 승인의 단계를 거칩니다. 승인 후에만 결제가 진행되고, 그때부터 마주함이 확정됩니다. 이 과정이 만남의 질을 보장합니다.</p>
         </details>
 
-        <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-stone-200 shadow-card cursor-pointer">
-          <summary class="font-medium text-stone-900 list-none flex items-center justify-between">
+        <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card cursor-pointer">
+          <summary class="font-medium text-[#141210] list-none flex items-center justify-between">
             거절되면 어떻게 되나요?
             <span class="text-stone-400 group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0 ml-4">+</span>
           </summary>
           <p class="text-stone-500 text-sm leading-relaxed mt-3">승인 전까지 결제가 없으므로 비용이 전혀 발생하지 않습니다. 운영진으로부터 거절 사유를 간략히 안내받을 수 있으며, 다른 자리에 재신청하실 수 있습니다.</p>
         </details>
 
-        <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-stone-200 shadow-card cursor-pointer">
-          <summary class="font-medium text-stone-900 list-none flex items-center justify-between">
+        <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card cursor-pointer">
+          <summary class="font-medium text-[#141210] list-none flex items-center justify-between">
             기부는 어떻게 처리되나요?
             <span class="text-stone-400 group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0 ml-4">+</span>
           </summary>
           <p class="text-stone-500 text-sm leading-relaxed mt-3">마주함이 완료되면 자동으로 멘토 명의의 기부가 처리됩니다. 기부처는 MAJU가 검증한 지정기부금단체 목록에서 멘토가 선택합니다. 기부 내역은 멘토 프로필에 투명하게 공개됩니다.</p>
         </details>
 
-        <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-stone-200 shadow-card cursor-pointer">
-          <summary class="font-medium text-stone-900 list-none flex items-center justify-between">
+        <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card cursor-pointer">
+          <summary class="font-medium text-[#141210] list-none flex items-center justify-between">
             노쇼나 취소 시 환불이 되나요?
             <span class="text-stone-400 group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0 ml-4">+</span>
           </summary>
           <p class="text-stone-500 text-sm leading-relaxed mt-3">에스크로 결제이므로 마주하기 전까지 금액이 보관됩니다. 멘토 사정으로 취소 시 전액 환불, 멘티 사정으로 취소 시 일정에 따른 환불 정책이 적용됩니다.</p>
         </details>
 
-        <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-stone-200 shadow-card cursor-pointer">
-          <summary class="font-medium text-stone-900 list-none flex items-center justify-between">
+        <details class="scroll-reveal group p-6 rounded-2xl bg-white border border-[#E3E1DE] shadow-card cursor-pointer">
+          <summary class="font-medium text-[#141210] list-none flex items-center justify-between">
             멘토로 참여하려면 어떻게 해야 하나요?
             <span class="text-stone-400 group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0 ml-4">+</span>
           </summary>
@@ -623,17 +638,17 @@
   </section>
 
   <!-- ─── 멘토 신청 CTA ─────────────────────────────────────── -->
-  <section id="mentor-apply" class="py-24 px-6" style="background-color: #FAF6EE;">
+  <section id="mentor-apply" class="py-24 px-6 bg-white">
     <div class="max-w-3xl mx-auto scroll-reveal">
-      <div class="p-8 md:p-12 rounded-3xl bg-amber-50 border border-amber-200 text-center shadow-card">
+      <div class="p-8 md:p-12 rounded-3xl bg-[#EEF1F6] border border-[#C5D0E0] text-center shadow-card">
         <div class="text-4xl mb-4">🤝</div>
-        <h2 class="text-2xl md:text-3xl font-bold text-stone-900 mb-4">멘토로 참여해 주세요</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#141210] mb-4">멘토로 참여해 주세요</h2>
         <p class="text-stone-600 leading-relaxed mb-8 max-w-xl mx-auto">
           당신의 1~2시간이 누군가의 방향을 바꿀 수 있습니다.<br/>
           MAJU는 의미 있는 마주함을 원하는 멘토를 찾고 있습니다.<br/>
           수익의 일부는 당신의 이름으로 세상을 더 좋게 만듭니다.
         </p>
-        <button onclick="openModal('mentor')" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white bg-amber-600 hover:bg-amber-700 transition-colors shadow-sm cursor-pointer">
+        <button onclick="openModal('mentor')" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white bg-[#1B2B4B] hover:bg-[#142237] transition-colors shadow-sm cursor-pointer">
           멘토 신청하기 →
         </button>
       </div>
@@ -643,19 +658,19 @@
   <!-- ─── 최종 CTA ──────────────────────────────────────────── -->
   <section id="apply" class="py-32 px-6 section-alt">
     <div class="max-w-2xl mx-auto text-center scroll-reveal">
-      <h2 class="text-4xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
+      <h2 class="text-4xl md:text-5xl font-bold text-[#141210] mb-6 leading-tight">
         지금,<br/>
         <span class="gold-text">마주하세요</span>
       </h2>
-      <p class="text-stone-600 text-lg leading-relaxed mb-10">
+      <p class="text-stone-500 text-lg leading-relaxed mb-10">
         기회는 오는 게 아닙니다. 사는 겁니다.<br/>
         <span class="text-stone-400 text-base mt-2 block">진지한 사람들만을 위한 자리입니다.</span>
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        <button onclick="openModal('mentee')" class="px-10 py-4 rounded-full font-semibold text-white bg-amber-600 hover:bg-amber-700 transition-all text-lg shadow-md shadow-amber-200 cursor-pointer">
+        <button onclick="openModal('mentee')" class="px-10 py-4 rounded-full font-semibold text-white bg-[#1B2B4B] hover:bg-[#142237] transition-all text-lg shadow-md cursor-pointer">
           자리 신청하기
         </button>
-        <button onclick="openModal('mentor')" class="px-10 py-4 rounded-full font-semibold text-stone-700 border border-stone-300 hover:border-amber-400 hover:text-amber-700 bg-white transition-all text-lg shadow-sm cursor-pointer">
+        <button onclick="openModal('mentor')" class="px-10 py-4 rounded-full font-semibold text-[#1B2B4B] border border-[#1B2B4B] hover:bg-[#1B2B4B] hover:text-white bg-white transition-all text-lg shadow-sm cursor-pointer">
           멘토로 참여하기
         </button>
       </div>
@@ -664,7 +679,7 @@
   </section>
 
   <!-- ─── 푸터 ──────────────────────────────────────────────── -->
-  <footer class="py-12 px-6 border-t border-stone-200 bg-white">
+  <footer class="py-12 px-6 border-t border-[#E3E1DE] bg-white">
     <div class="max-w-6xl mx-auto">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-8">
         <div>
@@ -673,26 +688,26 @@
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-sm">
           <div>
-            <div class="text-stone-700 font-medium mb-2">서비스</div>
+            <div class="text-[#141210] font-medium mb-2">서비스</div>
             <div class="space-y-1.5 text-stone-400">
-              <div><a href="#story" class="hover:text-stone-700 transition-colors">마주한다는 것</a></div>
-              <div><a href="#how" class="hover:text-stone-700 transition-colors">어떻게 작동하나요</a></div>
-              <div><a href="#format" class="hover:text-stone-700 transition-colors">만남 형태</a></div>
+              <div><a href="#story" class="hover:text-[#141210] transition-colors">마주한다는 것</a></div>
+              <div><a href="#how" class="hover:text-[#141210] transition-colors">어떻게 작동하나요</a></div>
+              <div><a href="#format" class="hover:text-[#141210] transition-colors">만남 형태</a></div>
             </div>
           </div>
           <div>
-            <div class="text-stone-700 font-medium mb-2">참여</div>
+            <div class="text-[#141210] font-medium mb-2">참여</div>
             <div class="space-y-1.5 text-stone-400">
-              <div><a href="#apply" class="hover:text-stone-700 transition-colors">멘티 신청</a></div>
-              <div><a href="#mentor-apply" class="hover:text-stone-700 transition-colors">멘토 지원</a></div>
+              <div><a href="#apply" class="hover:text-[#141210] transition-colors">멘티 신청</a></div>
+              <div><a href="#mentor-apply" class="hover:text-[#141210] transition-colors">멘토 지원</a></div>
             </div>
           </div>
           <div>
-            <div class="text-stone-700 font-medium mb-2">정보</div>
+            <div class="text-[#141210] font-medium mb-2">정보</div>
             <div class="space-y-1.5 text-stone-400">
-              <div><a href="#" class="hover:text-stone-700 transition-colors">이용약관</a></div>
-              <div><a href="#" class="hover:text-stone-700 transition-colors">개인정보처리방침</a></div>
-              <div><a href="#" class="hover:text-stone-700 transition-colors">환불정책</a></div>
+              <div><a href="#" class="hover:text-[#141210] transition-colors">이용약관</a></div>
+              <div><a href="#" class="hover:text-[#141210] transition-colors">개인정보처리방침</a></div>
+              <div><a href="#" class="hover:text-[#141210] transition-colors">환불정책</a></div>
             </div>
           </div>
         </div>
@@ -710,11 +725,11 @@
     <div class="modal-card">
       <div class="flex items-start justify-between mb-6">
         <div>
-          <p class="text-xs font-semibold text-amber-700 tracking-widest uppercase mb-1">MENTEE</p>
-          <h3 class="text-xl font-bold text-stone-900">자리 신청하기</h3>
+          <p class="text-xs font-semibold text-[#1B2B4B] tracking-widest uppercase mb-1">MENTEE</p>
+          <h3 class="text-xl font-bold text-[#141210]">자리 신청하기</h3>
           <p class="text-stone-500 text-sm mt-1">검토 후 이메일로 개별 연락드립니다.</p>
         </div>
-        <button onclick="closeModal('mentee')" class="text-stone-400 hover:text-stone-700 transition-colors p-1 -mr-1 mt-0.5">
+        <button onclick="closeModal('mentee')" class="text-stone-400 hover:text-[#141210] transition-colors p-1 -mr-1 mt-0.5">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
@@ -723,15 +738,15 @@
         <input type="hidden" name="_subject" value="MAJU — 새 멘티 신청" />
         <div class="space-y-4">
           <div>
-            <label class="form-label">이름 <span class="text-amber-600 normal-case font-normal">*</span></label>
+            <label class="form-label">이름 <span class="text-[#9A7520] normal-case font-normal">*</span></label>
             <input type="text" name="이름" class="form-input" placeholder="홍길동" required />
           </div>
           <div>
-            <label class="form-label">이메일 <span class="text-amber-600 normal-case font-normal">*</span></label>
+            <label class="form-label">이메일 <span class="text-[#9A7520] normal-case font-normal">*</span></label>
             <input type="email" name="email" class="form-input" placeholder="hello@example.com" required />
           </div>
           <div>
-            <label class="form-label">관심 분야 <span class="text-amber-600 normal-case font-normal">*</span></label>
+            <label class="form-label">관심 분야 <span class="text-[#9A7520] normal-case font-normal">*</span></label>
             <select name="관심분야" class="form-input" required>
               <option value="" disabled selected>선택해주세요</option>
               <option>창업 / 스타트업</option>
@@ -747,7 +762,7 @@
             <textarea name="신청이유" class="form-input" placeholder="지금 어떤 고민이 있는지, 어떤 대화를 원하시는지 자유롭게 써주세요."></textarea>
           </div>
         </div>
-        <button type="submit" id="btn-mentee" class="mt-6 w-full py-3.5 rounded-full font-semibold text-white bg-amber-600 hover:bg-amber-700 transition-colors disabled:opacity-50">
+        <button type="submit" id="btn-mentee" class="mt-6 w-full py-3.5 rounded-full font-semibold text-white bg-[#1B2B4B] hover:bg-[#142237] transition-colors disabled:opacity-50">
           신청서 제출하기
         </button>
         <p class="text-stone-400 text-xs text-center mt-3">아무나 받지 않습니다. 진지한 신청만 검토합니다.</p>
@@ -755,7 +770,7 @@
 
       <div id="success-mentee" class="hidden text-center py-8">
         <div class="text-5xl mb-4">🎉</div>
-        <h4 class="font-bold text-stone-900 text-lg mb-2">신청이 접수되었습니다!</h4>
+        <h4 class="font-bold text-[#141210] text-lg mb-2">신청이 접수되었습니다!</h4>
         <p class="text-stone-500 text-sm leading-relaxed">검토 후 이메일로 연락드리겠습니다.<br/>보통 3~5 영업일 이내에 답변드립니다.</p>
       </div>
     </div>
@@ -766,11 +781,11 @@
     <div class="modal-card">
       <div class="flex items-start justify-between mb-6">
         <div>
-          <p class="text-xs font-semibold text-amber-700 tracking-widest uppercase mb-1">MENTOR</p>
-          <h3 class="text-xl font-bold text-stone-900">멘토로 참여하기</h3>
+          <p class="text-xs font-semibold text-[#1B2B4B] tracking-widest uppercase mb-1">MENTOR</p>
+          <h3 class="text-xl font-bold text-[#141210]">멘토로 참여하기</h3>
           <p class="text-stone-500 text-sm mt-1">MAJU의 첫 마주함을 함께 만들어주세요.</p>
         </div>
-        <button onclick="closeModal('mentor')" class="text-stone-400 hover:text-stone-700 transition-colors p-1 -mr-1 mt-0.5">
+        <button onclick="closeModal('mentor')" class="text-stone-400 hover:text-[#141210] transition-colors p-1 -mr-1 mt-0.5">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
@@ -779,19 +794,19 @@
         <input type="hidden" name="_subject" value="MAJU — 새 멘토 신청" />
         <div class="space-y-4">
           <div>
-            <label class="form-label">이름 <span class="text-amber-600 normal-case font-normal">*</span></label>
+            <label class="form-label">이름 <span class="text-[#9A7520] normal-case font-normal">*</span></label>
             <input type="text" name="이름" class="form-input" placeholder="홍길동" required />
           </div>
           <div>
-            <label class="form-label">이메일 <span class="text-amber-600 normal-case font-normal">*</span></label>
+            <label class="form-label">이메일 <span class="text-[#9A7520] normal-case font-normal">*</span></label>
             <input type="email" name="email" class="form-input" placeholder="hello@example.com" required />
           </div>
           <div>
-            <label class="form-label">직함 / 소속 <span class="text-amber-600 normal-case font-normal">*</span></label>
+            <label class="form-label">직함 / 소속 <span class="text-[#9A7520] normal-case font-normal">*</span></label>
             <input type="text" name="직함소속" class="form-input" placeholder="OO스타트업 CTO" required />
           </div>
           <div>
-            <label class="form-label">어떤 주제로 마주하고 싶으신가요? <span class="text-amber-600 normal-case font-normal">*</span></label>
+            <label class="form-label">어떤 주제로 마주하고 싶으신가요? <span class="text-[#9A7520] normal-case font-normal">*</span></label>
             <input type="text" name="마주주제" class="form-input" placeholder="초기 스타트업 기술 스택, 투자 유치 전략 등" required />
           </div>
           <div>
@@ -799,7 +814,7 @@
             <textarea name="참여동기" class="form-input" placeholder="왜 MAJU에 멘토로 참여하고 싶으신지 자유롭게 써주세요."></textarea>
           </div>
         </div>
-        <button type="submit" id="btn-mentor" class="mt-6 w-full py-3.5 rounded-full font-semibold text-white bg-amber-600 hover:bg-amber-700 transition-colors disabled:opacity-50">
+        <button type="submit" id="btn-mentor" class="mt-6 w-full py-3.5 rounded-full font-semibold text-white bg-[#1B2B4B] hover:bg-[#142237] transition-colors disabled:opacity-50">
           멘토 신청서 제출하기
         </button>
         <p class="text-stone-400 text-xs text-center mt-3">모든 멘토 신청은 운영진이 직접 검토합니다.</p>
@@ -807,7 +822,7 @@
 
       <div id="success-mentor" class="hidden text-center py-8">
         <div class="text-5xl mb-4">🙏</div>
-        <h4 class="font-bold text-stone-900 text-lg mb-2">감사합니다!</h4>
+        <h4 class="font-bold text-[#141210] text-lg mb-2">감사합니다!</h4>
         <p class="text-stone-500 text-sm leading-relaxed">소중한 신청을 검토 후 연락드리겠습니다.<br/>보통 3~5 영업일 이내에 답변드립니다.</p>
       </div>
     </div>
