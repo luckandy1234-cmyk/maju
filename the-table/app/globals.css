@@ -1,0 +1,76 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Pretendard Variable', 'Pretendard', ui-sans-serif, system-ui, sans-serif;
+
+  /* ── 크림 팔레트 ── */
+  --color-cream:      #FAF8F5;
+  --color-cream-alt:  #F0EAE0;
+  --color-cream-deep: #E8DDD0;
+  --color-border:     #DDD5C8;
+  --color-card:       #FFFFFF;
+  --color-tag:        #EDE7DE;
+
+  /* ── 잉크 팔레트 ── */
+  --color-ink:        #1A1410;
+  --color-ink-2:      #3D3028;
+  --color-ink-3:      #7A6A60;
+  --color-ink-4:      #B0A090;
+
+  /* ── 포인트 ── */
+  --color-point:      #1A1410;
+  --color-point-warm: #8B5E3C;
+}
+
+/* ── 전역 ── */
+html  { scroll-behavior: smooth; }
+body  { background: #FAF8F5; color: #1A1410; }
+
+/* ── 스크롤 reveal ── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── 히어로 진입 애니메이션 ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.fade-up          { animation: fadeUp 0.65s ease both; }
+.fade-up.delay-1  { animation-delay: 0.10s; }
+.fade-up.delay-2  { animation-delay: 0.22s; }
+.fade-up.delay-3  { animation-delay: 0.36s; }
+.fade-up.delay-4  { animation-delay: 0.50s; }
+
+/* ── 프로필 카드 float ── */
+@keyframes floatA {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes floatB {
+  0%,100% { transform: translateY(-5px); }
+  50%      { transform: translateY(5px); }
+}
+.float-a { animation: floatA 5s ease-in-out infinite; }
+.float-b { animation: floatB 6s ease-in-out infinite; }
+.float-c { animation: floatA 7s ease-in-out infinite; animation-delay: 1s; }
+
+/* ── 구분선 ── */
+.divider { background: #DDD5C8; height: 1px; }
+
+/* ── FAQ details ── */
+details summary { list-style: none; cursor: pointer; }
+details summary::-webkit-details-marker { display: none; }
+
+/* ── 카드 hover ── */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(26,20,16,0.10);
+}

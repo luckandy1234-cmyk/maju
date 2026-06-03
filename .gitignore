@@ -1,0 +1,33 @@
+# ── Next.js ──
+the-table/.next/
+the-table/out/
+the-table/build/
+the-table/node_modules/
+
+# ── 환경 변수 (절대 커밋 금지) ──
+the-table/.env
+the-table/.env.local
+the-table/.env*.local
+.env
+.env.local
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE ──
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Office 임시 파일 ──
+~$*
+
+# ── Claude Code 세션 ──
+.claude/
+
+# ── 로그 ──
+*.log
+npm-debug.log*
